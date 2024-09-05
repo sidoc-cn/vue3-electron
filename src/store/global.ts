@@ -18,6 +18,7 @@ export const useGlobalStore = defineStore("global", {
     },
     actions: {
         update(name: string) {
+            console.log(name);
             this.config.length = 0;
         },
     },

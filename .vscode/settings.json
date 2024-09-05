@@ -143,6 +143,7 @@
     // 7.0> Code Spell Checker插件配置 --------------------------------------------------------------------------------
     // 该插件检查单词拼写错误；遇到如下单词时，不检查拼写错误：
     "cSpell.words": [
+        "asar",
         "Axure",
         "backtop",
         "Bytemd",
@@ -175,6 +176,7 @@
         "Mockplus",
         "moddle",
         "nprogress",
+        "nsis",
         "openeds",
         "pinia",
         "pspace",

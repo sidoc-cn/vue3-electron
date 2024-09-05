@@ -46,5 +46,6 @@ import "./assets/fonts/fonts.scss";
 import "virtual:svg-icons-register";
 
 app.mount("#app").$nextTick(() => {
+    // Vue应用挂载并完成DOM更新后，发送移除Loading的通知
     postMessage({ payload: "removeLoading" }, "*");
 });

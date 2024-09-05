@@ -336,6 +336,7 @@ const toFixed = (value: unknown, decimalPlaces: number, defaultValue?: unknown) 
             return v.toFixed(decimalPlaces);
         }
     } catch (error) {
+        console.error(error);
         if (defaultValue === undefined) return value;
         else return defaultValue;
     }
