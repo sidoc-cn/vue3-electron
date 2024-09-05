@@ -46,7 +46,7 @@
         "stylelint-config-standard-scss": "^13.1.0",
         "typescript": "^5.4.2",
         "typescript-eslint": "^8.4.0",
-        "unplugin-auto-import": "^0.16.6",
+        "unplugin-auto-import": "^0.18.2",
         "unplugin-vue-components": "^0.25.2",
         "vite": "^5.1.5",
         "vite-plugin-electron": "^0.28.4",
