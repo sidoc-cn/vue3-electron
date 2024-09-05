@@ -1,3 +1,10 @@
+# 列出当前项目中的所有Git仓库
+git remote -v
+
+## 删除一个指定名称的仓库
+git remote remove
+
+# 添加一个指定名称和地址的仓库
 git remote add github git@github.com:sidoc-cn/vue3-electron.git
 
 git push github main
