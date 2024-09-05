@@ -1,0 +1,3 @@
+git remote add github git@github.com:sidoc-cn/vue3-electron.git
+
+git push github main
