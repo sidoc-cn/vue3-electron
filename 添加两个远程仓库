@@ -7,5 +7,6 @@ git remote remove
 # 添加一个指定名称和地址的仓库
 git remote add github git@github.com:sidoc-cn/vue3-electron.git
 
-git push github main
+# 
+git push github
 
