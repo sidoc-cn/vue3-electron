@@ -1,0 +1,74 @@
+// 全局表格表单样式
+
+.global-form-table {
+    border-collapse: collapse;
+    text-align: center;
+    border: #ededed;
+
+    td {
+        height: 2.875rem;
+    }
+
+    thead tr {
+        color: #3c4353 !important;
+        letter-spacing: 0;
+        font-weight: bold;
+        font-size: 1rem;
+
+        th,
+        td {
+            background-color: #d7e2ee !important;
+
+            > div.cell {
+                text-align: center;
+            }
+        }
+    }
+
+    tr td {
+        padding: 0 !important;
+
+        .el-table__cell > .cell {
+            height: 100%;
+        }
+
+        // 输入框
+        .el-form-item__content {
+            margin: 0 !important;
+        }
+
+        .el-input__wrapper,
+        .el-input__wrapper:hover,
+        .el-input__wrapper:focus,
+        .el-input__wrapper:active,
+        .el-input__wrapper:focus-within,
+        .el-input__wrapper:visited {
+            box-shadow: none !important;
+            background: none !important;
+        }
+
+        .el-select .el-input.is-focus .el-input__wrapper {
+            box-shadow: none !important;
+        }
+
+        .el-input__wrapper input {
+            text-align: center;
+        }
+
+        /* 控制表单输入项是否显示margin-bottom, 显示margin-bottom用于为错误信息留出显示的位置 */
+        .el-form-item {
+            margin-bottom: 0;
+        }
+
+        .el-form-item.is-error {
+            margin-bottom: 1.125rem;
+        }
+
+        /* 错误信息 */
+        .el-form-item__error {
+            padding: 0 0.625rem;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}

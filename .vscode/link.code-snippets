@@ -1,0 +1,69 @@
+{
+    "新增链接(文本)": {
+        "scope": "html",
+        "prefix": "link-add",
+        "body": ["<el-link v-auth=\"'add'\" class=\"add\" :underline=\"false\" type=\"primary\" @click=\"add()\">添加</el-link>"],
+        "description": "新增链接(文本)"
+    },
+    "编辑链接(文本)": {
+        "scope": "html",
+        "prefix": "link-edit ",
+        "body": ["<el-link v-auth=\"'edit'\" class=\"edit\" :underline=\"false\" type=\"primary\" @click=\"edit()\">编辑</el-link>"],
+        "description": "编辑链接(文本)"
+    },
+    "删除链接(文本)": {
+        "scope": "html",
+        "prefix": "link-delete",
+        "body": ["<el-link v-auth=\"'delete'\" class=\"delete\" :underline=\"false\" type=\"danger\" @click=\"showDeleteConfirm([scope.row])\">删除</el-link>"],
+        "description": "删除链接(文本)"
+    },
+    "导出链接(文本)": {
+        "scope": "html",
+        "prefix": "link-export",
+        "body": ["<el-link v-auth=\"'export'\" class=\"export\" :underline=\"false\" type=\"warning\" @click=\"export()\">导出</el-link>"],
+        "description": "导出链接(文本)"
+    },
+    "导入链接(文本)": {
+        "scope": "html",
+        "prefix": "link-import",
+        "body": ["<el-link v-auth=\"'import'\" class=\"import\" :underline=\"false\" type=\"success\" @click=\"import()\">导入</el-link>"],
+        "description": "导入链接(文本)"
+    },
+    "查看链接(文本)": {
+        "scope": "html",
+        "prefix": "link-view",
+        "body": ["<el-link v-auth=\"'view'\" class=\"view\" :underline=\"false\" type=\"primary\" @click=\"view()\">查看</el-link>"],
+        "description": "查看链接(文本)"
+    },
+    "详情链接(文本)": {
+        "scope": "html",
+        "prefix": "link-detail",
+        "body": ["<el-link v-auth=\"'detail'\" class=\"detail\" :underline=\"false\" type=\"primary\" @click=\"detail()\">详情</el-link>"],
+        "description": "详情链接(文本)"
+    },
+    "上传链接(文本)": {
+        "scope": "html",
+        "prefix": "link-upload",
+        "body": ["<el-link v-auth=\"'upload'\" class=\"upload\" :underline=\"false\" type=\"primary\" @click=\"upload()\">上传</el-link>"],
+        "description": "上传链接(文本)"
+    },
+    "下载链接(文本)": {
+        "scope": "html",
+        "prefix": "link-download",
+        "body": ["<el-link v-auth=\"'download'\" class=\"download\" :underline=\"false\" type=\"primary\" @click=\"download()\">下载</el-link>"],
+        "description": "下载链接(文本)"
+    },
+    "保存链接(文本)": {
+        "scope": "html",
+        "prefix": "link-save",
+        "body": ["<el-link v-auth=\"'save'\" class=\"save\" :underline=\"false\" type=\"primary\" @click=\"save()\">保存</el-link>"],
+        "description": "保存链接(文本)"
+    },
+    "取消链接(文本)": {
+        "scope": "html",
+        "prefix": "link-cancel",
+        "body": ["<el-link v-auth=\"'cancel'\" class=\"cancel\" :underline=\"false\" type=\"primary\" @click=\"cancel()\">取消</el-link>"],
+        "description": "取消链接(文本)"
+    }
+
+}

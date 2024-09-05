@@ -1,0 +1,215 @@
+// 全局表单样式
+
+.global-form {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+
+    .el-form-item{
+        margin-bottom: 1.25rem;
+
+        .el-form-item__label{
+            font-size: 1rem;
+            flex-shrink: 0;
+            white-space: nowrap;
+            padding-right: 1.1875rem;
+
+            // 文字两端对齐
+            text-align: justify;
+            text-align-last: justify;
+        }
+
+        .el-form-item__content{
+            // 表单输入框与文字基线对齐，防止多选输入框撑高后，输入项名称和输入框错位
+            align-items: baseline;
+            flex-wrap: nowrap;
+
+            > :not(button):first-child{
+                flex-grow: 1;
+            }
+        }
+
+        .el-radio__label{
+            font-size: 1rem; // 默认radio的字体大小
+        }
+    }
+
+}
+
+// 媒体查询递增粒度（媒体查询是基于浏览器宽度）
+$size: 24rem;
+
+
+// 每行1列的样式定义 ------------------------------------------------------------------
+.global-form.row-span-1 {
+    > * {
+        width: 100%;
+    }
+}
+
+// 每行2列的样式定义 ------------------------------------------------------------------
+.global-form.row-span-2 {
+    > * {
+        width: 100%;
+    }
+    @media (min-width: ($size * 2)) {
+        > * {
+            width: 50%;
+        }
+
+        > *.colspan-2 {
+            width: 100%;
+        }
+    }
+}
+
+// 每行3列的样式定义 ------------------------------------------------------------------
+.global-form.row-span-3 {
+    > * {
+        width: 100%;
+    }
+    @media (min-width: ($size * 2)) {
+        > * {
+            width: 50%;
+        }
+
+        > *.colspan-3,
+        > *.colspan-2 {
+            width: 100%;
+        }
+    }
+    @media (min-width: ($size * 3)) {
+        > * {
+            width: 33.3333%;
+        }
+
+        > *.colspan-3 {
+            width: 100%;
+        }
+
+        > *.colspan-2 {
+            width: 66.6666%;
+        }
+    }
+}
+
+// 每行4列的样式定义 ------------------------------------------------------------------
+.global-form.row-span-4 {
+    > * {
+        width: 100%;
+    }
+    @media (min-width: ($size * 2)) {
+        > * {
+            width: 50%;
+        }
+
+        > *.colspan-4,
+        > *.colspan-3,
+        > *.colspan-2 {
+            width: 100%;
+        }
+    }
+    @media (min-width: ($size * 3)) {
+        > * {
+            width: 33.3333%;
+        }
+
+        > *.colspan-4,
+        > *.colspan-3 {
+            width: 100%;
+        }
+
+        > *.colspan-2 {
+            width: 75%;
+        }
+    }
+    @media (min-width: ($size * 4)) {
+        > * {
+            width: 25%;
+        }
+
+        > *.colspan-4 {
+            width: 100%;
+        }
+
+        > *.colspan-3 {
+            width: 75%;
+        }
+
+        > *.colspan-2 {
+            width: 50%;
+        }
+    }
+}
+
+// 每行5列的样式定义 ------------------------------------------------------------------
+.global-form.row-span-5 {
+    > * {
+        width: 100%;
+    }
+    @media (min-width: ($size * 2)) {
+        > * {
+            width: 50%;
+        }
+
+        > *.colspan-5,
+        > *.colspan-4,
+        > *.colspan-3,
+        > *.colspan-2 {
+            width: 100%;
+        }
+    }
+    @media (min-width: ($size * 3)) {
+        > * {
+            width: 33.3333%;
+        }
+
+        > *.colspan-5,
+        > *.colspan-4,
+        > *.colspan-3 {
+            width: 100%;
+        }
+
+        > *.colspan-2 {
+            width: 75%;
+        }
+    }
+    @media (min-width: ($size * 4)) {
+        > * {
+            width: 25%;
+        }
+
+        > *.colspan-4 {
+            width: 100%;
+        }
+
+        > *.colspan-3 {
+            width: 75%;
+        }
+
+        > *.colspan-2 {
+            width: 50%;
+        }
+    }
+    @media (min-width: ($size * 5)) {
+        > * {
+            width: 20%;
+        }
+
+        > *.colspan-5 {
+            width: 100%;
+        }
+
+        > *.colspan-4 {
+            width: 80%;
+        }
+
+        > *.colspan-3 {
+            width: 60%;
+        }
+
+        > *.colspan-2 {
+            width: 50%;
+        }
+    }
+}

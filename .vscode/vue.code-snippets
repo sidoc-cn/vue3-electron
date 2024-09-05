@@ -1,0 +1,95 @@
+{
+    "onMounted": {
+		"scope": "javascript,typescript",
+		"prefix": "onMounted",
+		"body": [
+            "onMounted(() => {",
+            "\t// TO DO",
+            "});"
+		],
+		"description": "组件加载完成后触发"
+	},
+
+    "onUnmounted": {
+		"scope": "javascript,typescript",
+		"prefix": "onUnmounted",
+		"body": [
+            "onUnmounted(() => {",
+            "\t// TO DO",
+            "});"
+		],
+		"description": "组件销毁完成后触发"
+	},
+    
+    "onBeforeUnmount": {
+		"scope": "javascript,typescript",
+		"prefix": "onBeforeUnmount",
+		"body": [
+            "onBeforeUnmount(() => {",
+            "\t// TO DO",
+            "})"
+		],
+		"description": "组件销毁之前触发"
+	},
+
+    
+    "watch": {
+		"scope": "javascript,typescript",
+		"prefix": "watch",
+		"body": [
+            "watch(value$1, (newValue, oldValue) => {",
+            "\t// TO DO",
+            "});"
+		],
+		"description": "watch监听"
+	},
+
+    "watchEffect": {
+		"scope": "javascript,typescript",
+		"prefix": "watchEffect",
+		"body": [
+            "watchEffect(() => {",
+            "\t// TO DO",
+            "});"
+		],
+		"description": "watchEffect监听"
+	},
+
+    "defineProps": {
+		"scope": "javascript,typescript",
+		"prefix": "defineProps,props",
+		"body": [
+            "const props = defineProps({",
+                "\tvalue: {",
+                    "\t\ttype: [String, Number],",
+                    "\t\tdefault: () => \"\",",
+                "\t},",
+            "});",
+		],
+		"description": "props接收参数"
+	},
+
+    "defineEmits": {
+		"scope": "javascript,typescript",
+		"prefix": "defineEmits,emits",
+		"body": [
+            "// 声明事件",
+            "const emit = defineEmits([\"callEvent\"]);",
+            "// 调用事件",
+            "emit(\"callEvent\", \"data\");"
+		],
+		"description": "emits抛出事件"
+	},
+
+    "向外部暴露方法": {
+		"scope": "javascript,typescript",
+		"prefix": "defineExpose",
+		"body": [
+            "// 向外部暴露方法",
+            "defineExpose({",
+                "\tgetData,",
+            "});",
+		],
+		"description": "向外部暴露方法"
+	},
+}

@@ -1,0 +1,32 @@
+{
+ 
+    "messageError": {
+        "scope": "javascript,typescript",
+        "prefix": "messageError",
+        "body": ["messageError(\"$1\");"],
+        "description": "新增提示"
+    },
+
+    "messageSuccess": {
+        "scope": "javascript,typescript",
+        "prefix": "messageSuccess",
+        "body": ["messageSuccess(\"$1\");"],
+        "description": "新增提示"
+    },
+
+    "messageWarning": {
+        "scope": "javascript,typescript",
+        "prefix": "messageWarning",
+        "body": ["messageWarning(\"$1\");"],
+        "description": "新增提示"
+    },
+
+    "messageInfo": {
+        "scope": "javascript,typescript",
+        "prefix": "messageInfo",
+        "body": ["messageInfo(\"$1\");"],
+        "description": "新增提示"
+    },
+
+
+}

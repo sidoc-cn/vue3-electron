@@ -1,0 +1,104 @@
+{
+
+    // 快捷class样式
+
+    "字体加粗 class=\"font-weight\"": {
+        "scope": "html",
+        "prefix": "font-weight",
+        "body": [
+            "class=\"font-weight\"",
+        ],
+        "description": "字体加粗"
+    },
+
+    "大字体(18px) class=\"font-large\"": {
+        "scope": "html",
+        "prefix": "font-large",
+        "body": [
+            "class=\"font-large\"",
+        ],
+        "description": "大字体"
+    },
+
+    "小字体(14px) class=\"font-small\"": {
+        "scope": "html",
+        "prefix": "font-small",
+        "body": [
+            "class=\"font-small\"",
+        ],
+        "description": "小字体"
+    },
+
+    "文字溢出 class=\"text-ellipsis\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis",
+        "body": [
+            "class=\"text-ellipsis\"",
+        ],
+        "description": "文字溢出"
+    },
+
+    "文字溢出 - 1行 class=\"text-ellipsis-1\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-1",
+        "body": [
+            "class=\"text-ellipsis-1\"",
+        ],
+        "description": "文字溢出 - 1行"
+    },
+
+    "文字溢出 - 2行 class=\"text-ellipsis-2\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-2",
+        "body": [
+            "class=\"text-ellipsis-2\"",
+        ],
+        "description": "文字溢出 - 2行"
+    },
+
+    "文字溢出 - 3行 class=\"text-ellipsis-3\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-3",
+        "body": [
+            "class=\"text-ellipsis-3\"",
+        ],
+        "description": "文字溢出 - 3行"
+    },
+
+    "文字溢出 - 4行 class=\"text-ellipsis-4\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-4",
+        "body": [
+            "class=\"text-ellipsis-4\"",
+        ],
+        "description": "文字溢出 - 4行"
+    },
+
+    "文字溢出 - 5行 class=\"text-ellipsis-5\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-5",
+        "body": [
+            "class=\"text-ellipsis-5\"",
+        ],
+        "description": "文字溢出 - 5行"
+    },
+
+    "文字溢出 - 6行 class=\"text-ellipsis-6\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-6",
+        "body": [
+            "class=\"text-ellipsis-6\"",
+        ],
+        "description": "文字溢出 - 6行"
+    },
+
+    "撤消文字溢出 class=\"text-ellipsis-none\"": {
+        "scope": "html",
+        "prefix": "text-ellipsis-none",
+        "body": [
+            "class=\"text-ellipsis-none\"",
+        ],
+        "description": "撤消文字溢出"
+    },
+
+}

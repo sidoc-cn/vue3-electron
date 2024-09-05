@@ -1,0 +1,127 @@
+{
+
+    "表单验证 - 模板": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules",
+        "body": [
+        "const formRules = reactive<FormRules>({",
+            "\tname: [",
+                "\t\t{ required: true, message: \"请输入\", trigger: \"blur\" },",
+                "\t\t{ min: 2, max: 5, message: \"姓名长度2-5个字符\", trigger: \"blur\" },",
+            "\t],",
+        "});"
+        ],
+        "description": "表单验证 - 模板"
+    },
+
+    "表单验证 - 必填校验": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-required",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        ],
+        "description": "表单验证 - 必填校验"
+    },
+
+    "表单验证 - 数字校验": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-number",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ type: 'number', message: \"必须为数字\" },"
+        ],
+        "description": "表单验证 - 数字校验"
+    },
+    
+    
+    "表单验证 - 长度校验": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-length",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ min: 2, max: 5, message: \"姓名长度2-5个字符\", trigger: \"blur\" },"
+        ],
+        "description": "表单验证 - 长度校验"
+    },
+
+    "表单验证 - 手机号校验": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-phone",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.phone, message: \"请输入正确的手机号\", trigger: \"blur\" },"
+        ],
+        "description": "表单验证 - 手机号校验"
+    },
+
+    "表单验证 - 身份证号": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-idCard",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.idCard, message: \"请输入正确的身份证号\", trigger: \"blur\" },"
+        ],
+        "description": "表单验证 - 身份证号"
+    },
+
+    "表单验证 - 邮箱": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-email",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ type: 'email', message: \"请输入正确的邮箱\",trigger: \"blur\" }"
+        ],
+        "description": "表单验证 - 邮箱"
+    },
+
+
+    "表单验证 - url": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-url",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ type: 'url', message: \"请输入正确的url\",trigger: \"blur\" }"
+        ],
+        "description": "表单验证 - url"
+    },
+
+    "表单验证 - 邮编": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-postCode",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.postCode, trigger: \"blur\",message: \"请输入正确的邮编\" },"
+        ],
+        "description": "表单验证 - 邮编"
+    },
+
+    "表单验证 - IP": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-IP",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.Ipv4, trigger: \"blur\",message: \"请输入正确的IP\" },"
+        ],
+        "description": "表单验证 - IP"
+    },
+
+    "表单验证 - 汉字": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-ChineseCharacter",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.ChineseCharacter, trigger: \"blur\",message: \"只能输入汉字\" },"
+        ],
+        "description": "表单验证 - 汉字"
+    },
+
+    "表单验证 - 车牌": {
+        "scope": "javascript,typescript",
+        "prefix": "formRules-plateNum",
+        "body": [
+        "{ required: true, message: \"请输入\", trigger: \"blur\" },",
+        "{ pattern: regular.plateNum, trigger: \"blur\",message: \"请输入正确的车牌号\" },"
+        ],
+        "description": "表单验证 - 车牌"
+    },
+}

@@ -1,0 +1,93 @@
+{
+    "新增按钮": {
+        "scope": "html",
+        "prefix": "button-add",
+        "body": ["<el-button v-auth=\"'add'\" class=\"add\" type=\"primary\" @click=\"add()\">添加</el-button>"],
+        "description": "新增按钮"
+    },
+    "编辑按钮": {
+        "scope": "html",
+        "prefix": "button-edit",
+        "body": ["<el-button v-auth=\"'edit'\" class=\"edit\" type=\"primary\" @click=\"edit()\">编辑</el-button>"],
+        "description": "编辑按钮"
+    },
+    "删除按钮": {
+        "scope": "html",
+        "prefix": "button-delete",
+        "body": ["<el-button v-auth=\"'delete'\" class=\"delete\" type=\"danger\" @click=\"deleteEvent()\">删除</el-button>"],
+        "description": "删除按钮"
+    },
+    "导出按钮": {
+        "scope": "html",
+        "prefix": "button-export",
+        "body": ["<el-button v-auth=\"'export'\" class=\"export\" type=\"warning\" @click=\"exportEvent()\">导出</el-button>"],
+        "description": "导出按钮"
+    },
+    "导入按钮": {
+        "scope": "html",
+        "prefix": "button-import",
+        "body": ["<el-button v-auth=\"'import'\" class=\"import\" type=\"primary\" @click=\"importEvent()\">导入</el-button>"],
+        "description": "导入按钮"
+    },
+    "查看按钮": {
+        "scope": "html",
+        "prefix": "button-view",
+        "body": ["<el-button v-auth=\"'view'\" class=\"view\" type=\"primary\" @click=\"view()\">查看</el-button>"],
+        "description": "查看按钮"
+    },
+    "详情按钮": {
+        "scope": "html",
+        "prefix": "button-detail",
+        "body": ["<el-button v-auth=\"'detail'\" class=\"detail\" type=\"primary\" @click=\"detail()\">详情</el-button>"],
+        "description": "详情按钮"
+    },
+    "上传按钮": {
+        "scope": "html",
+        "prefix": "button-upload",
+        "body": ["<el-button v-auth=\"'upload'\" class=\"upload\" type=\"primary\" @click=\"upload()\">上传</el-button>"],
+        "description": "上传按钮"
+    },
+    "下载按钮": {
+        "scope": "html",
+        "prefix": "button-download",
+        "body": ["<el-button v-auth=\"'download'\" class=\"download\" type=\"primary\" @click=\"download()\">下载</el-button>"],
+        "description": "下载按钮"
+    },
+    "保存按钮": {
+        "scope": "html",
+        "prefix": "button-save",
+        "body": ["<el-button v-auth=\"'save'\" class=\"save\" type=\"primary\" @click=\"save()\">保存</el-button>"],
+        "description": "保存按钮"
+    },
+    "取消按钮": {
+        "scope": "html",
+        "prefix": "button-cancel",
+        "body": ["<el-button v-auth=\"'cancel'\" class=\"cancel\" type=\"primary\" @click=\"cancel()\">取消</el-button>"],
+        "description": "取消按钮"
+    },
+    "重置按钮": {
+        "scope": "html",
+        "prefix": "button-reset",
+        "body": ["<el-button v-auth=\"'reset'\" class=\"reset\" type=\"primary\" @click=\"reset()\">重置</el-button>"],
+        "description": "重置按钮"
+    },
+    "查询按钮": {
+        "scope": "html",
+        "prefix": "button-search",
+        "body": ["<el-button v-auth=\"'search'\" class=\"search\" type=\"primary\" @click=\"search()\">查询</el-button>"],
+        "description": "搜索按钮"
+    },
+    "确定按钮": {
+        "scope": "html",
+        "prefix": "button-confirm",
+        "body": ["<el-button v-auth=\"'confirm'\" class=\"confirm\" type=\"primary\" @click=\"confirmEvent()\">确定</el-button>"],
+        "description": "确定按钮"
+    },
+    "返回按钮": {
+        "scope": "html",
+        "prefix": "button-back",
+        "body": ["<el-button v-auth=\"'back'\" class=\"back\" type=\"primary\" @click=\"backEvent()\">返回</el-button>"],
+        "description": "返回按钮"
+    }
+
+}

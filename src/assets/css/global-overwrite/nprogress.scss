@@ -1,0 +1,7 @@
+
+// nprogress 页面顶部滚动条样式
+
+#nprogress .bar {
+    // background-color: red !important;  // 纯色
+    background: linear-gradient(to right,blue,pink); // 渐变色
+}

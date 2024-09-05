@@ -1,0 +1,591 @@
+{
+    // 组件快捷方式
+
+    "Tabs路由切换 - HTML": {
+        "scope": "html",
+        "prefix": "components-Tabs",
+        "body": [
+            "<Tabs>",
+                "\t<TabsItem path=\"/path/demo1\">页面1</TabsItem>",
+                "\t<TabsItem path=\"/path/demo2\">页面2</TabsItem>",
+            "</Tabs>",
+            "",
+            "<PageBlock>",
+                "\t<router-view class=\"tabs-content\"></router-view>",
+            "</PageBlock>"
+        ],
+        "description": "Tabs路由切换 - HTML"
+    },
+
+    "Dialog弹框 - HTML": {
+        "scope": "html",
+        "prefix": "components-DialogHtml",
+        "body": [
+            "<DialogHtml :options=\"dialogConfig\">",
+            "\t<!-- TO DO -->",
+            "</DialogHtml>"
+        ],
+        "description": "Dialog弹框 - HTML"
+    },
+
+    "Dialog弹框 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-DialogHtml",
+        "body": [
+            "const dialogConfig: import(\"@/components/dialog-html/DialogHtml.vue\").DialogProps = {",
+                "\ttitle: ref(\"标题\"),",
+                "\tvisible: ref(false),",
+                "\twidth: \"30%\",",
+                "\tactionButton: [",
+                    "\t\t{ key: \"cancel\", type: DialogActionButtonType.Default, text: \"取消\", status: DialogActionButtonStatus.Default },",
+                    "\t\t{ key: \"confirm\", type: DialogActionButtonType.Primary, text: \"确认\", status: DialogActionButtonStatus.Default },",
+                "\t],",
+                "\tactionButtonClick: (button: import(\"@/components/dialog-html/DialogHtml\").DialogActionButton, done: () => void) => {",
+                    "\t\tif (button.key === \"cancel\") return done();",
+                    "\t\t// TO DO",
+                "\t},",
+            "};"
+        ],
+        "description": "Dialog弹框 - Typescript"
+    },
+
+    "Dialog确认弹框 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-DialogConfirm",
+        "body": [
+            "dialogConfirm({",
+                "\ttitle: \"标题\",",
+                "\tcontent: \"内容\",",
+                "\tbeforeClose: (done) => {",
+                    "\t\t// TO DO",
+                    "\t\tdone();",
+                "\t},",
+            "});"
+        ],
+        "description": "Dialog确认弹框 - Typescript"
+    },
+
+    "加载SVG图标 - HTML": {
+        "scope": "html",
+        "prefix": "components-SvgIcon",
+        "body": [
+            "<SvgIcon name=\"login/user\" />"
+        ],
+        "description": "加载SVG图标"
+    },
+
+    "文件上传组件- HTML": {
+        "scope": "html",
+        "prefix": "components-FileUpload",
+        "body": [
+            "<FileUpload :options=\"fileUploadConfig\" />"
+        ],
+        "description": "文件上传组件"
+    },
+
+    "文件上传组件 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-FileUpload",
+        "body": [
+            "const fileUploadConfig: import(\"@/components/file-upload/FileUpload.vue\").FileUploadProps = {",
+                "\tdata: reactive([]),",
+                "\tchangeEvent: (data: Array<import(\"@/components/file-upload/FileUpload\").FileUploadObj>) => {",
+                    "\t\tdata.forEach((item) => {",
+                        "\t\t\titem.data && formData.businessAttachments.push(item.data);",
+                    "\t\t});",
+                "\t},",
+            "};",
+        ],
+        "description": "文件上传组件"
+    },
+
+    "文件预览组件 - HTML": {
+        "scope": "html",
+        "prefix": "components-FilePreview",
+        "body": [
+            "<DialogHtml :options=\"filePreviewDialogConfig\">",
+                "\t<FilePreview :url=\"'/files/test.pdf'\" />",
+            "</DialogHtml>"
+        ],
+        "description": "文件预览组件"
+    },
+
+    "文件预览组件 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-FilePreview",
+        "body": [
+            "const filePreviewDialogConfig: import(\"@/components/dialog-html/DialogHtml.vue\").DialogProps = {",
+                "\ttitle: ref(\"标题\"),",
+                "\tvisible: ref(true),",
+                "\twidth: \"80%\",",
+                "\ttop: \"2rem\",",
+                "\tactionButton: [],",
+            "};"
+        ],
+        "description": "文件预览组件"
+    },
+
+    "Markdown文件渲染 - HTML": {
+        "scope": "html",
+        "prefix": "components-Markdown",
+        "body": [
+            "<Markdown :data=\"markdownData\"></Markdown>"
+        ],
+        "description": "Markdown文件渲染"
+    },
+    "Markdown文件渲染 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-Markdown",
+        "body": [
+            "// Markdown",
+            "import indexMarkdown from \"./Index.md?raw\";",
+            "let markdownData = ref(indexMarkdown);"
+        ],
+        "description": "Markdown文件渲染"
+    },
+
+    "富文本/Markdown编辑器 - HTML": {
+        "scope": "html",
+        "prefix": "components-Editor",
+        "body": [
+            "<Editor ref=\"editorRef\" :options=\"editorConfig\" />"
+        ],
+        "description": "富文本/Markdown编辑器"
+    },
+
+    "富文本/Markdown编辑器 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-Editor",
+        "body": [
+            "// 富文本编辑器",
+            "const editorRef = ref();",
+            "const editorConfig: import(\"@/components/editor/Editor.vue\").EditorProps = {",
+                "\t/** 编辑器类型 */",
+                "\ttype: EditorType.WangEditor,",
+                "",
+                "\t/** 编辑器高度 */",
+                "\theight: ref(\"12rem\"),",
+                "",
+                "\t/** 内容 */",
+                "\tcontent: ref(\"\"),",
+                "",
+                "\t/** 只读模式 */",
+                "\treadOnly: false,",
+            "};"
+        ],
+        "description": "富文本/Markdown编辑器"
+    },
+    
+    "只读表单 - HTML": {
+        "scope": "html",
+        "prefix": "components-FormView",
+        "body": [
+            "<!-- row-span-3表示每行显示的列数 -->",
+            "<FormView class=\"row-span-3\" label-width=\"60\">",
+                "\t<FormViewItem>",
+                    "\t\t<template #name>字段名称</template>",
+                    "\t\t<template #value>字段值</template>",
+                "\t</FormViewItem>",
+                "",
+                "\t<!-- colspan-2单独指定该字段所占的列数 -->",
+                "\t<FormViewItem class=\"colspan-3\">",
+                    "\t\t<template #name>字段名称</template>",
+                    "\t\t<template #value>字段值</template>",
+                "\t</FormViewItem>",
+            "</FormView>"
+        ],
+        "description": "只读表单"
+    },
+
+    "表格表单 - HTML": {
+        "scope": "html",
+        "prefix": "components-FormTable",
+        "body": [
+            "<el-form ref=\"ruleFormRef\" :model=\"formData\" :rules=\"tableRules\" label-width=\"120px\" class=\"global-form\">",
+            "\t<FormTable :options=\"tableListConfig\">",
+                "\t\t<el-table-column type=\"selection\" width=\"55\" align=\"center\" />",
+                "\t\t<el-table-column label=\"序号\" width=\"70\" align=\"center\">",
+                    "\t\t\t<template #default=\"scope\">",
+                        "\t\t\t\t{{ scope.$index + 1 }}",
+                    "\t\t\t</template>",
+                "\t\t</el-table-column>",
+
+                "\t\t<el-table-column prop=\"\" label=\"字段名1\">",
+                    "\t\t\t<template #default=\"scope\">",
+                        "\t\t\t\t<el-form-item label=\"\" :rules=\"tableRules.content\" :prop=\"scope.$index + '.content'\">",
+                            "\t\t\t\t\t<el-input type=\"text\" v-model=\"scope.row.content\" placeholder=\"请输入\"></el-input>",
+                        "\t\t\t\t</el-form-item>",
+                    "\t\t\t</template>",
+                "\t\t</el-table-column>",
+
+                "\t\t<el-table-column prop=\"\" label=\"字段名2\">",
+                    "\t\t\t<template #default=\"scope\">",
+                        "\t\t\t\t<el-form-item label=\"\" :rules=\"tableRules.planRate\" :prop=\"scope.$index + '.planRate'\">",
+                            "\t\t\t\t\t<el-input type=\"text\" v-model=\"scope.row.planRate\" placeholder=\"请输入\"></el-input>",
+                        "\t\t\t\t</el-form-item>",
+                    "\t\t\t</template>",
+                "\t\t</el-table-column>",
+            "\t</FormTable>",
+           "</el-form>"
+        ],
+        "description": "表格表单"
+    },
+
+    "搜索栏 - HTML": {
+        "scope": "html",
+        "prefix": "components-SearchBar",
+        "body": [
+            "<SearchBar>",
+                "\t<SearchBarLeft>",
+                    "\t\t<div class=\"item\">",
+                        "\t\t\t<div class=\"name\">单位领导</div>",
+                        "\t\t\t<el-input v-model=\"searchKeywords.name\" placeholder=\"请输入名称\" clearable />",
+                    "\t\t</div>",
+                    "",
+                    "\t\t<el-button v-auth=\"'add'\" class=\"add\" type=\"primary\" @click=\"search()\">查询</el-button>",
+                    "\t\t<el-button v-auth=\"'reset'\" class=\"reset\" type=\"primary\" @click=\"reset()\">重置</el-button>",
+                "\t</SearchBarLeft>",
+                "\t<SearchBarRight>",
+                    "\t\t<el-button v-auth=\"'export'\" class=\"export\" type=\"warning\" @click=\"exportEvent()\">导出</el-button>",
+                "\t</SearchBarRight>",
+            "</SearchBar>"
+        ],
+        "description": "搜索栏 - HTML"
+    },
+
+
+    "TableList - HTML": {
+        "scope": "html",
+        "prefix": "components-TableList",
+        "body": [
+            "<TableList :options=\"tableConfig\">",
+                "\t<el-table-column type=\"selection\" width=\"55\" align=\"center\" />",
+                "\t<el-table-column label=\"序号\" width=\"70\" align=\"center\">",
+                    "\t\t<template #default=\"scope\">",
+                        "\t\t\t{{ scope.$index + 1 }}",
+                    "\t\t</template>",
+                "\t</el-table-column>",
+                "\t<el-table-column prop=\"name\" label=\"姓名\" align=\"center\">",
+                    "\t\t<template #default=\"scope\">",
+                        "\t\t\t<el-link v-auth=\"'view'\" class=\"view\" :underline=\"false\" type=\"primary\">",
+                            "\t\t\t\t{{ scope.row.name }}",
+                        "\t\t\t</el-link>",
+                    "\t\t</template>",
+                "\t</el-table-column>",
+                "\t<el-table-column prop=\"roleNames\" label=\"角色名称\" align=\"center\" />",
+                "\t<el-table-column prop=\"userState\" label=\"在职状态\" align=\"center\" />",
+                "\t<el-table-column prop=\"createUserName\" label=\"创建时间\" align=\"center\" />",
+                "\t<el-table-column label=\"操作\" width=\"200\" align=\"center\">",
+                    "\t\t<template #default=\"scope\">",
+                        "\t\t\t<el-link v-auth=\"'edit'\" class=\"edit\" :underline=\"false\" type=\"primary\" @click=\"edit(scope.row)\">编辑</el-link>",
+                        "\t\t\t<el-link v-auth=\"'delete'\" class=\"delete\" :underline=\"false\" type=\"danger\">删除</el-link>",
+                        "\t\t\t<!-- <el-link v-auth=\"'reset'\" class=\"save\" :underline=\"false\" type=\"primary\">重置密码</el-link> -->",
+                    "\t\t</template>",
+                "\t</el-table-column>",
+           "</TableList>"
+        ],
+        "description": "通用表格列表"
+    },
+
+    "思维导图 - HTML": {
+        "scope": "html",
+        "prefix": "components-MindMapping",
+        "body": [
+            "<MindMapping ref=\"mindMappingRef\" :options=\"mindMappingConfig\">",
+            "</MindMapping>"
+        ],
+        "description": "思维导图"
+    },
+    "思维导图 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-MindMapping",
+        "body": [
+            "const mindMappingRef = ref();",
+            "const mindMappingConfig: import(\"@/components/mind-mapping/MindMapping.vue\").MindMappingPropsType = {",
+                "\t/** 是否可编辑导图 */",
+                "\teditable: ref(true)",
+                "",
+                "\tsave(data: import(\"@/components/mind-mapping/MindMapping\").MindMappingNodeType) {",
+                "\t\t console.log(data);",
+               "\t},",
+            "};"
+        ],
+        "description": "思维导图"
+    },
+
+    "年月时间选择器 - HTML": {
+        "scope": "html",
+        "prefix": "components-MonthPicker",
+        "body": [
+            "<MonthPicker ref=\"mindMappingRef\" :options=\"data\">",
+            "</MonthPicker>"
+        ],
+        "description": "年月时间选择器"
+    },
+
+    "选择用户 - HTML": {
+        "scope": "html",
+        "prefix": "components-BigDataSelection",
+        "body": [
+            "<DialogHtml :options=\"dialogConfig\">",
+            "\t<BigDataSelection ref=\"bigDataSelection\" :options=\"bigDataSelectionConfig\" />",
+            "</DialogHtml>"
+        ],
+        "description": "年月时间选择器"
+    },
+    "选择用户 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-BigDataSelection",
+        "body": [
+            "const bigDataSelectionConfig: import(\"@/components/big-data-selection/BigDataSelection.vue\").BigDataSelectionProps = {",
+                "\tdata: [], // 回显数据",
+                "\torgIds: [], // 需要显示的组织机构ID数组",
+            "};"
+        ],
+        "description": "文件预览组件"
+    },
+
+    "通用Select选择": {
+        "scope": "html",
+        "prefix": "components-SelectCommon",
+        "body": [
+            "<SelectCommon v-model=\"value\" :type=\"SelectCommonType.Demo\" placeholder=\"请选择\"></SelectCommon>"
+        ],
+        "description": "通用Select选择" 
+    },
+
+    "表单通用Select选择": {
+        "scope": "html",
+        "prefix": "components-FormSelectCommon",
+        "body": [
+            "<el-form-item label=\"Select选择\" prop=\"name\">",
+                "\t<SelectCommon v-model=\"formData.name\" :type=\"SelectCommonType.Demo\" placeholder=\"请选择\"></SelectCommon>",
+            "</el-form-item>",
+        ],
+        "description": "表单通用Select选择"
+    },
+
+    "Select可选可输入": {
+        "scope": "html",
+        "prefix": "components-SelectInput",
+        "body": [
+            "<SelectInput v-model=\"value\" :type=\"SelectCommonType.Demo\" placeholder=\"请选择\"></SelectInput>"
+        ],
+        "description": "Select-input可选可输入"
+    },
+
+    "Cascader省市区级联选择": {
+        "scope": "html",
+        "prefix": "components-CascaderArea",
+        "body": [
+            "<CascaderArea v-model=\"value\" :level=\"CascaderAreaLevel.Street\"></CascaderArea>"
+        ],
+        "description": "Cascader省市区级联选择"
+    },
+
+    "Cascader省市区级联选择 - key和value互转": {
+        "scope": "javascript,typescript",
+        "prefix": "components-CascaderAreaKey",
+        "body": [
+            "// 地区级联：key转value",
+            "keyToValue(keys, (values: string[]) => {",
+                "\tconsole.log(values);",
+            "});",
+            "",
+            "// 地区级联：value转key",
+            "valueToKey(values, (keys: number[]) => {",
+                "\tconsole.log(keys);",
+            "});"
+        ],
+        "description": "Cascader省市区级联选择"
+    },
+
+
+
+    "表单Cascader省市区级联选择": {
+        "scope": "html",
+        "prefix": "components-FormCascaderArea",
+        "body": [
+            "<el-form-item label=\"省市区级联选择\" prop=\"name\">",
+                "\t<CascaderArea v-model=\"value\" :level=\"CascaderAreaLevel.Street\"></CascaderArea>",
+            "</el-form-item>",
+        ],
+        "description": "表单Cascader省市区级联选择"
+    },
+
+    "承担单位树选择": {
+        "scope": "html",
+        "prefix": "components-CascaderOrgs",
+        "body": [
+            "<CascaderOrgs v-model=\"value\"></CascaderOrgs>"
+        ],
+        "description": "Cascader承担单位树选择"
+    },
+
+    "树形结构组件": {
+        "scope": "html",
+        "prefix": "components-Tree",
+        "body": [
+            "<Tree :treeObj=\"treeConfig\" />"
+        ],
+        "description": "树型结构组件"
+    },
+    "树形结构组件 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-Tree",
+        "body": [
+            "const propConfig: TreeProps<Tree> = {",
+                "\tdata: reactive<Array<Tree>>([]),",
+                "\tloading: ref(false),",
+            "};",
+            ],
+        "description": "树型结构组件"
+    },
+
+    "页面功能块标题": {
+        "scope": "html",
+        "prefix": "components-BlockTitle",
+        "body": [
+            "<BlockTitle>标题</BlockTitle>"
+        ],
+        "description": "页面功能块标题"
+    },
+
+    "分类筛选": {
+        "scope": "html",
+        "prefix": "components-ClassifyTabs",
+        "body": [
+            "<ClassifyTabs @getParamsData=\"getParamsData\" />"
+        ],
+        "description": "分类筛选"
+    },
+    "分类筛选 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-ClassifyTabs",
+        "body": [
+            "// 接收参数,获取数据",
+            "const getParamsData = (ids: string[]) => {",
+                "\tsearchKeywords.groupOriginIds.length = 0;",
+                "\tsearchKeywords.groupOriginIds.push(...ids);",
+                "\tloadData();",
+            "};"
+            ],
+        "description": "分类筛选"
+    },
+
+    "相机": {
+        "scope": "html",
+        "prefix": "components-Camera",
+        "body": [
+            "<Camera ref=\"videos\" :videoSize=\"videoSize\" />"
+        ],
+        "description": "相机"
+    },
+
+    "视频播放": {
+        "scope": "html",
+        "prefix": "components-VideoPlayer",
+        "body": [
+            "<VideoPlayer src=\"/docs-files/component-accumulate/video-js/oceans.mp4\" type=\"video/mp4\" />"
+        ],
+        "description": "视频播放"
+    },
+
+    "二维码生成": {
+        "scope": "html",
+        "prefix": "components-QRCode",
+        "body": [
+            "<QRCode :value=\"content\" :size=\"qrcodeSize\" :logo-src=\"logo\" />"
+        ],
+        "description": "二维码生成"
+    },
+
+    "浏览器兼容性检查": {
+        "scope": "html",
+        "prefix": "components-BrowserCheck",
+        "body": [
+            "<BrowserCheck :support=\"['chrome,firefox']\"></BrowserCheck>"
+        ],
+        "description": "浏览器兼容性检查"
+    },
+
+    "文件导入 - HTML": {
+        "scope": "html",
+        "prefix": "components-FileImport",
+        "body": [
+            "<FileImport ref=\"fileImportRef\" :options=\"fileImportConfig\" />"
+        ],
+        "description": "文件导入 - HTML"
+    },
+
+    "文件导入 - Typescript": {
+        "scope": "javascript,typescript",
+        "prefix": "components-FileImport",
+        "body": [
+            "// 文件导入配置",
+            "const fileImportRef = ref();",
+            "const fileImportConfig: import(\"@/components/file-import/FileImport.vue\").FileImportProps = {",
+                "\ttitle: ref(\"导入\"),",
+                "\tvisible: ref(false),",
+                "\taccept: \".xls,.xlsx\",",
+                "\tstyle: FileImportStyle.Drag,",
+                "\tremarkInfo: [\"单次上传条数最多10000条，文件最大10M\", \"只支持excel文件\"],",
+                "\t// 模板下载配置",
+                "\tdownloadConfig: (): import(\"@/components/file-import/FileImport\").FileImportApiConfig => {",
+                    "\t\treturn {",
+                        "\t\t\tmethod: \"post\",",
+                        "\t\t\tbaseUrl: ServerType.Base,",
+                        "\t\t\turl: \"/system/user/importTemplate\",",
+                    "\t\t};",
+                "\t},",
+                "\t// 文件导入配置",
+                "\timportConfig: (): import(\"@/components/file-import/FileImport\").FileImportApiConfig => {",
+                    "\t\treturn {",
+                        "\t\t\tmethod: \"post\",",
+                        "\t\t\tbaseUrl: ServerType.Base,",
+                        "\t\t\turl: \"/system/user/importData\",",
+                        "\t\t\tparams: {",
+                            "\t\t\t\tupdateSupport: 0,",
+                        "\t\t\t},",
+                    "\t\t};",
+                "\t},",
+                "\t// 文件导入完成后回调",
+                "\tcompetedCallback: () => {",
+                    "\t\tdebugger;",
+                "\t},",
+            "};",
+            "// 显示文件导入弹框",
+            "const importEvent = () => (fileImportConfig.visible.value = true);"
+        ],
+        "description": "文件导入 - HTML"
+    },
+
+    "面包屑 - HTML": {
+        "scope": "html",
+        "prefix": "components-Breadcrumb",
+        "body": [
+            "<Breadcrumb>",
+                "\t<!-- 点击面包屑时通过 to(跳转) 或 replace(替换) 切换到指定页面； 没有参数 to 或 replace 时，则面包屑不可点击 -->",
+                "\t<BreadcrumbItem to=\"/\">首页</BreadcrumbItem>",
+                "\t<BreadcrumbItem replace=\"/login\">登录页面</BreadcrumbItem>",
+                "\t<BreadcrumbItem>当前页面</BreadcrumbItem>",
+                "\t",
+                "\t<template #right>面包屑右侧插槽（可选）</template>",
+            "</Breadcrumb>",
+        ],
+        "description": "面包屑 - HTML"
+    },
+
+    "断点续传 - HTML": {
+        "scope": "html",
+        "prefix": "components-BreakpointUploading",
+        "body": [
+            "<BreakpointUploading ref=\"sliceFileRef\" :options=\"sliceFileConfig\" />",
+        ],
+        "description": "断点续传 - HTML"
+    },
+
+
+
+
+}

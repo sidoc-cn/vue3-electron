@@ -1,0 +1,278 @@
+{
+
+    "HTML表单结构": {
+        "scope": "html",
+        "prefix": "form",
+        "body": [
+            "<el-form ref=\"formRef\" :model=\"formData\" :rules=\"formRules\" label-width=\"120px\" class=\"global-form\" :size=\"formSize\">",
+                "\t<!-- 请添加表单项 -->",                
+            "</el-form>"
+
+            
+        ],
+        "description": "HTML表单结构"
+    },
+
+
+    "TS表单结构": {
+        "scope": "javascript,typescript",
+        "prefix": "form",
+        "body": [
+            "import type { FormRules, FormInstance } from \"element-plus\";",
+            "",
+            "const isLoading = ref(false);",
+            "const formRef = ref<FormInstance>();",
+            "",
+            "// 表单数据",
+            "const formData = reactive({",
+                "\tname: \"\",",
+            "});",
+            "",
+            "// 表单验证规则",
+            "const formRules = reactive<FormRules>({",
+                "\tname: [",
+                    "\t\t{ required: true, message: \"请输入\", trigger: \"blur\" },",
+                    "\t\t{ min: 3, max: 5, message: \"请输入3到5个字符\", trigger: \"blur\" },",
+                "\t],",
+            "});",
+            "",
+            "// 表单提交 - 表单验证"
+            "const submit = () => {"
+                "\tformRef.value &&"
+                    "\t\tformRef.value.validate((valid, fields) => {"
+                        "\t\t\tif (valid) {"
+                            "\t\t\t\tsubmitImp();"
+                        "\t\t\t} else {"
+                            "\t\t\t\t// 获取第一个错误消息，并给于提示"
+                            "\t\t\t\tfor (let key in fields) {"
+                                "\t\t\t\t\tlet value = fields[key] as [{ message: string }];"
+                                "\t\t\t\t\tvalue.length >= 1 && messageError(value[0].message);"
+                                "\t\t\t\t\tbreak;"
+                            "\t\t\t\t}"
+                        "\t\t\t}"
+                    "\t\t});"
+            "};"
+            ""
+            "// 表单提交 - 请求接口"
+            "const submitImp = () => {"
+                "\tinterface ResType {",
+                    "\t\ttest1: string;",
+                    "\t\ttest2: number;",
+                "\t}",
+                "\tisLoading.value = true;",
+                "\thttpPost<ResType>(ServerType.Main, {",
+                    "\t\turl: \"/test\",",
+                    "\t\tparams: {},",
+                    "\t\tdata: formData,",
+                "\t})",
+                    "\t\t.then((data: ResType) => {",
+                        "\t\t\tconsole.log(data);",
+                    "\t\t})",
+                    "\t\t.finally(() => (isLoading.value = false));",
+            "};",
+        ],
+        "description": "TS表单结构"
+    },
+
+
+
+    "文本输入框": {
+        "scope": "html",
+        "prefix": "input-text",
+        "body": ["<el-input v-model=\"value\" type=\"text\" placeholder=\"请输入\"></el-input>"],
+        "description": "文本输入"
+    },
+
+    "文本域": {
+        "scope": "html",
+        "prefix": "input-textarea",
+        "body": ["<el-input v-model=\"value\" type=\"textarea\" placeholder=\"请输入\"></el-input>"],
+        "description": "文本域"
+    },
+
+    "禁用文本框": {
+        "scope": "html",
+        "prefix": "input-disabled",
+        "body": ["<el-input v-model=\"value\" disabled placeholder=\"请输入\" />"],
+        "description": "禁用文本框"
+    },
+
+    "带图标文本框": {
+        "scope": "html",
+        "prefix": "input-icon",
+        "body": ["<el-input v-model=\"value\" :suffix-icon=\"Calendar\" disabled placeholder=\"请输入\" />"],
+        "description": "带图标文本框"
+    },
+
+    "复合型输入框": {
+        "scope": "html",
+        "prefix": "input-complex",
+        "body": ["<el-input v-model=\"input3\" placeholder=\"Please input\" class=\"input-with-select\">",
+                    "\t<template #prepend>",
+                        "\t\t<el-select v-model=\"select\" placeholder=\"Select\" style=\"width: 115px\">",
+                            "\t\t\t<el-option label=\"Restaurant\" value=\"1\" />",
+                            "\t\t\t<el-option label=\"Order No.\" value=\"2\" />",
+                            "\t\t\t<el-option label=\"Tel\" value=\"3\" />",
+                        "\t\t</el-select>",
+                    "\t</template>",
+                    "\t<template #append>",
+                        "\t\t<el-button :icon=\"Search\" />",
+                    "\t</template>",
+                "</el-input>"
+            ],
+        "description": "复合型输入框"
+    }, 
+
+    "表单文本输入框": {
+        "scope": "html",
+        "prefix": "form-input-text",
+        "body": [
+            "<el-form-item label=\"文本输入\" prop=\"name\">",
+                "\t<el-input v-model=\"formData.name\" clearable />",
+            "</el-form-item>",
+        ],
+        "description": "文本输入"
+    },
+
+    "数字输入框": {
+        "scope": "html",
+        "prefix": "input-number",
+        "body": ["<el-input-number v-model=\"value\" placeholder=\"请输入\"></el-input-number>"],
+        "description": "数字输入"
+    },
+    
+    "表单数字输入框": {
+        "scope": "html",
+        "prefix": "form-input-number",
+        "body": [
+            "<el-form-item label=\"数字输入\" prop=\"name\">",
+                "\t<el-input v-model=\"formData.name\" clearable />",
+            "</el-form-item>",
+        ],
+        "description": "表单数字输入框"
+    },
+
+    "密码输入框": {
+        "scope": "html",
+        "prefix": "input-password",
+        "body": ["<el-input v-model=\"value\" type=\"password\" show-password placeholder=\"请输入密码\"></el-input>"],
+        "description": "密码输入"
+    },
+
+    "表单密码输入框": {
+        "scope": "html",
+        "prefix": "form-input-password",
+        "body": [
+            "<el-form-item label=\"密码输入\" prop=\"name\">",
+                "\t<el-input v-model=\"formData.name\" type=\"password\" show-password placeholder=\"请输入密码\"></el-input>",
+            "</el-form-item>",
+        ],
+        "description": "表单密码输入"
+    },
+
+    "单选框组": {
+        "scope": "html",
+        "prefix": "radio-group",
+        "body": [
+            "<el-radio-group v-model=\"radio1\" class=\"ml-4\">",
+                "\t<el-radio label=\"1\" size=\"large\">Option 1</el-radio>",
+                "\t<el-radio label=\"2\" size=\"large\">Option 2</el-radio>",
+            "</el-radio-group>"
+        ],
+        "description": "单选框组"
+    },
+
+    "复选框组": {
+        "scope": "html",
+        "prefix": "checkbox-group",
+        "body": [
+            "<el-checkbox-group v-model=\"checkList\">",
+                "\t<el-checkbox label=\"Option A\" />",
+                "\t<el-checkbox label=\"Option B\" />",
+                "\t<el-checkbox label=\"Option C\" />",
+                "\t<el-checkbox label=\"disabled\" disabled />",
+                "\t<el-checkbox label=\"selected and disabled\" disabled />",
+            "</el-checkbox-group>"
+        ],
+        "description": "复选框组"
+    },
+    "表单下拉框": {
+        "scope": "html",
+        "prefix": "form-select-common",
+        "body": [
+            "<el-form-item label=\"labelValue\" prop=\"value\">",
+                "<SelectCommon",
+                    "v-model=\"form.value\"",
+                    ":type=\"SelectCommonType.Demo\"",
+                    "placeholder=\"请选择\"",
+                    "@optionChange=\"optionsList\"",
+                "></SelectCommon>",
+            "</el-form-item>"
+        ],
+        "description": "表单下拉框"
+    },
+    "表单时间选择器": {
+        "scope": "html",
+        "prefix": "form-date-picker",
+        "body": [
+            "<el-form-item label=\"labelValue\" prop=\"value\">",
+                "<el-date-picker",
+                   "v-model=\"form.value\"",
+                    "type=\"daterange\"",
+                    "range-separator=\"至\"",
+                    "start-placeholder=\"开始日期\"",
+                    "end-placeholder=\"结束日期\"",
+                    "value-format=\"YYYY-MM-DD\"",
+                "/>",
+            "</el-form-item>"
+        ],
+        "description": "表单时间选择器"
+    },
+    "表单单选框组": {
+        "scope": "html",
+        "prefix": "form-radio-group",
+        "body": [
+            "<el-form-item label=\"Resources\">",
+                "<el-radio-group v-model=\"form.resource\">",
+                    "<el-radio label=\"Sponsor\" />",
+                    "<el-radio label=\"Venue\" />",
+                "</el-radio-group>",
+            "</el-form-item>"
+        ],
+        "description": "表单单选框组"
+    },
+    "表单复选框组": {
+        "scope": "html",
+        "prefix": "form-checkbox-group",
+        "body": [
+            "<el-form-item label=\"Resources\">",
+                "<el-radio-group v-model=\"form.resource\">",
+                    "<el-radio label=\"Sponsor\" />",
+                    "<el-radio label=\"Venue\" />",
+                "</el-radio-group>",
+            "</el-form-item>"
+        ],
+        "description": "表单复选框组"
+    },
+    "表单文本域输入框": {
+        "scope": "html",
+        "prefix": "form-textarea",
+        "body": [
+            "<el-form-item label=\"Activity form\">",
+                "<el-input v-model=\"form.desc\" type=\"textarea\" />",
+            "</el-form-item>"
+        ],
+        "description": "表单文本域输入框"
+    },
+    "表单switch开关": {
+        "scope": "html",
+        "prefix": "form-switch",
+        "body": [
+            "<el-form-item label=\"Instant delivery\">",
+                "<el-switch v-model=\"form.delivery\" />",
+            "</el-form-item>"
+        ],
+        "description": "表单switch开关"
+    },
+
+}

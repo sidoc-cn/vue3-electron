@@ -1,0 +1,3 @@
+
+1. SelectCommon是当前项目正在使用ts文件，其中包含了当前项目所有的select下拉数据；
+2. SelectCommonTemplate是SelectCommon的空模板文件；

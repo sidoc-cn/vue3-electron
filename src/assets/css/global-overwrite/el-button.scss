@@ -1,0 +1,16 @@
+
+// Element-Plus 按钮样式
+
+// 默认按钮尺寸
+.el-button {
+	height: 1.875rem !important;
+}
+
+// large按钮尺寸
+.el-button--large{
+	height: 2.5rem !important;
+    padding: 0 2.4375rem !important;
+    >span{
+        font-size: 1.125rem;
+    }
+}

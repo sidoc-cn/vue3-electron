@@ -1,0 +1,28 @@
+/* 常用列表 */
+
+.func {
+    display: flex;
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #ccc;
+
+        .item {
+            padding: 10px;
+            border-bottom: 1px solid rgb(234 234 234);
+            cursor: pointer;
+            white-space: nowrap;
+
+            &:hover {
+                color: red;
+            }
+
+            &.active {
+                color: #409eff;
+                background-color: rgb(236 236 236);
+            }
+        }
+    }
+
+}

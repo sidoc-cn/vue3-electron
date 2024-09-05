@@ -1,0 +1,97 @@
+{
+    // 杨伟伟长期维护
+
+    "HTTP请求": {
+		"scope": "javascript,typescript",
+		"prefix": "http",
+		"body": [
+            "interface ResType {",
+                "\ttest1: string;",
+                "\ttest2: number;",
+            "}",
+            "http<ResType>(ServerType.Main, {",
+                "\tmethod: \"get\",",
+                "\turl: \"/test\",",
+                "\tparams: {},",
+                "\tdata: {},",
+            "}).then((data: ResType) => {",
+                "\tconsole.log(data);",
+            "});"
+		],
+		"description": "HTTP请求"
+	},
+
+    "Get请求": {
+		"scope": "javascript,typescript",
+		"prefix": "httpGet",
+		"body": [
+            "interface ResType {",
+            "\ttest1: string;",
+            "\ttest2: number;",
+            "}",
+            "",
+            "httpGet<ResType>(ServerType.Main, {",
+            "\turl: \"/test\",",
+            "\tparams: {},",
+            "}).then((data: ResType) => {",
+            "\tconsole.log(data);",
+            "});"
+		],
+		"description": "Get请求"
+	},
+
+    "Post请求": {
+		"scope": "javascript,typescript",
+		"prefix": "httpPost",
+		"body": [
+            "interface ResType {",
+            "\ttest1: string;",
+            "\ttest2: number;",
+            "}",
+            "",
+            "httpPost<ResType>(ServerType.Main, {",
+            "\turl: \"/test\",",
+            "\tparams: {},",
+            "\tdata: {},",
+            "}).then((data: ResType) => {",
+            "\tconsole.log(data);",
+            "});"
+		],
+		"description": "Post请求"
+	},
+
+    "Put请求": {
+		"scope": "javascript,typescript",
+		"prefix": "httpPut",
+		"body": [
+            "interface ResType {",
+            "\ttest1: string;",
+            "\ttest2: number;",
+            "}",
+            "",
+            "httpPut<ResType>(ServerType.Main, {",
+            "\turl: \"/test\",",
+            "\tparams: {},",
+            "\tdata: {},",
+            "}).then((data: ResType) => {",
+            "\tconsole.log(data);",
+            "});"
+		],
+		"description": "Put请求"
+	},
+
+    "Delete请求": {
+		"scope": "javascript,typescript",
+		"prefix": "httpDelete",
+		"body": [
+            "httpDelete(ServerType.Main, {",
+            "\turl: \"/test\",",
+            "\tparams: {},",
+            "\tdata: {},",
+            "}).then((data) => {",
+            "\tconsole.log(data);",
+            "});"
+		],
+		"description": "Delete请求"
+	},
+}

@@ -1,0 +1,56 @@
+{
+
+    "空页面模板": {
+		"scope": "vue,html",
+		"prefix": "Page",  // 代码片段的命令
+		"body": [
+            "<template>",
+            "    <div class=\"类名与文件同名\"></div>",
+            "</template>",
+            "",
+            "<script lang=\"ts\" setup>",
+            "const test = ref(\"\");",
+            "$1",
+            "onMounted(() => {",
+            "    console.log(\"1\");",
+            "});",
+            "</script>",
+            "",
+            "<style lang=\"scss\" scoped></style>"
+		],
+		"description": "空页面模板"
+	},
+
+
+    "页面块": {
+		"scope": "vue,html",
+		"prefix": "PageBlock",  // 代码片段的命令
+		"body": [
+            "<PageBlock>",
+                "\t<!-- TODO 页面块内容 -->",
+            "</PageBlock>"
+		],
+		"description": "页面块"
+	},
+
+    "页面功能块": {
+		"scope": "vue,html",
+		"prefix": "PageFunctionBlock",  // 代码片段的命令
+		"body": [
+            "<PageFunctionBlock>",
+                "\t<template #title>页面功能块标题</template>",
+                "\t<template #content>",
+                    "\t\t<!-- TODO 页面功能块内容 -->",
+                "\t</template>",
+            "</PageFunctionBlock>"
+		],
+		"description": "页面功能块"
+	},
+
+
+
+
+
+
+
+}

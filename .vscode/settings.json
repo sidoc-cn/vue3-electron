@@ -1,0 +1,257 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsc.autoDetect": "off",
+    "json.schemas": [
+        {
+            "fileMatch": ["/*electron-builder.json5", "/*electron-builder.json"],
+            "url": "https://json.schemastore.org/electron-builder"
+        }
+    ],
+
+    // 默认换行符
+    "files.eol": "\n",
+
+    // git自动刷新
+    "git.autorefresh": true,
+
+    // 控制代码片段是否与其他建议一起显示及其排列的位置。
+    //  - top: 在其他建议上方显示代码片段建议。
+    //  - bottom: 在其他建议下方显示代码片段建议。
+    //  - inline: 在其他建议中穿插显示代码片段建议。
+    //  - none: 不显示代码片段建议。
+    "editor.snippetSuggestions": "top",
+
+    // 保存时使用VSCode自身格式化程序格式化
+    // !关闭VSCode自身的格式化功能，并在下方使用三方插件ESLint的格式化功能
+    "editor.formatOnSave": true,
+
+    // 保存时使用指定插件格式化
+    // !使用三方插件ESLint进行格式化；使用插件格式化时，请关闭VSCode自身的格式化，以避免冲突
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
+    },
+
+    // 使用prettier作为各语言文件的默认格式化工具
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+    // 启用 Tab 补全
+    "editor.tabCompletion": "on",
+
+    // 用户ESLint
+    "eslint.format.enable": true,
+
+    // 禁用重命名或移动文件时自动更新导入路径的功能，因为此功能在文件较多时会导致编辑器卡住
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "never",
+    "vue.updateImportsOnFileMove.enabled": false,
+
+    // 使用vscode搜索时排除指定目录或文件，以提升搜索情况
+    "search.exclude": {
+        "**/.gitignore": true,
+        "**/.git": true,
+        "**/dist": false, // true表示排除搜索，false不排除
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/package-lock.json": true
+    },
+
+    // 排除通过vscode打开和管理的文件或目录，以提升vscode使用性能
+    "files.exclude": {
+        "**/node_modules": true,
+        "geckodriver.log": true,
+        "yarn.lock": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/vite.config.ts.*.mjs": true
+    },
+
+    // 排除对指定文件的更改监听
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/dist/**": true
+    },
+
+    // 1.0> EVN插件配置，用于.env文件高亮 -------------------------------------------------------------------------
+    "files.associations": {
+        ".env.*": "env" // 所有匹配 .env.* 的文件，都使用 env 语言高亮
+    },
+
+    // 2.0> tabnine插件配置 -------------------------------------------------------------------------------------
+    // 当前关键字中包含如下正则时，禁用tabnine（因为tabnine的优先级高于代码片段，会影响代码片段的显示）
+    "tabnine.disableLineRegex": [
+        // "http*",
+        // "button*",
+        // "message*",
+        // "msg*",
+        // "import*",
+        // "imp*",
+        // "script*",
+        // "style*",
+        // "input*",
+        // "select*",
+        // "dialog*",
+        "on*",
+        "wat*"
+    ],
+
+    // 3.0> stylelint插件配置 --------------------------------------------------------------------------------------
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        // "vue" // necessary for stylelint diagnostics in .vue <style> tag
+        "scss",
+        "sass"
+    ],
+
+    // 4.0> Volar配置 ----------------------------------------------------------------------------------------------
+    "volar.autoCompleteRefs": false, // 禁用.value，以提升性能
+    "volar.takeOverMode.enabled": false, // 禁用Volar的TS支持，以提升性能；Volar的TS支持用于弥补Vscode内置TS对TS的支持，由于Volar性能过差，此处禁用以尽量获得一些性能上的提升；
+
+    // 5.0> Vetur配置 ----------------------------------------------------------------------------------------------
+    // 在当前项目中禁用Vetur
+    "vetur.validation.template": false,
+    "vetur.validation.script": false,
+    "vetur.validation.style": false,
+
+    // 6.0> Path Intellisense 路径提示插件配置 -----------------------------------------------------------------------
+    "path-intellisense.mappings": {
+        "@": "${workspaceRoot}/src"
+    },
+
+    // 7.0> Code Spell Checker插件配置 --------------------------------------------------------------------------------
+    // 该插件检查单词拼写错误；遇到如下单词时，不检查拼写错误：
+    "cSpell.words": [
+        "Axure",
+        "backtop",
+        "Bytemd",
+        "cascader",
+        "colspan",
+        "cropperjs",
+        "cssrem",
+        "Datainterface",
+        "daterange",
+        "Dics",
+        "echart",
+        "echarts",
+        "EPSG",
+        "exceljs",
+        "finalresult",
+        "frontmatter",
+        "gemoji",
+        "gitmodules",
+        "hmargin",
+        "iconify",
+        "jsmind",
+        "Jsonedit",
+        "jsoneditor",
+        "juejin",
+        "lottiefiles",
+        "luckysheet",
+        "Mackbook",
+        "mavon",
+        "miniprogram",
+        "Mockplus",
+        "moddle",
+        "nprogress",
+        "openeds",
+        "pinia",
+        "pspace",
+        "qqbrowser",
+        "qrcode",
+        "recordrtc",
+        "sortablejs",
+        "stylelint",
+        "Tagify",
+        "Tian",
+        "unplugin",
+        "uuidv",
+        "vetur",
+        "vfonts",
+        "videojs",
+        "vite",
+        "vitepress",
+        "vmargin",
+        "vueup",
+        "Vuex",
+        "wangeditor",
+        "WMTS",
+        "wordcloud",
+        "wxml",
+        "yaireo",
+        "YANGWW",
+        "zlfx",
+        "zoomable"
+    ],
+
+    // 8.0> better-comments插件配置 --------------------------------------------------------------------------------
+    // 如下配置使该插件在HTML中生效
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ]
+}

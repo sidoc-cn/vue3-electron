@@ -1,0 +1,34 @@
+
+{
+    "style": {
+		"scope": "vue",
+		"prefix": "style",
+		"body": [
+			"<style lang=\"scss\" scoped>$1</style>"
+		],
+		"description": "style标签"
+	},
+
+    "script": {
+		"scope": "vue",
+		"prefix": "script",
+		"body": [
+			"<script lang=\"ts\" setup>$1</script>"
+		],
+		"description": "<script lang=\"ts\" setup></script>"
+	},
+
+    "utils": {
+		"scope": "javascript,typescript",
+		"prefix": "utils",
+		"body": [
+			"utils"
+		],
+		"description": "全局工具函数库"
+	},
+
+
+    
+
+
+}
