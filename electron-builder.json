@@ -1,33 +1,58 @@
 {
     "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-    "appId": "YourAppID",
+    "appId": "77Q6F9P39T",
     "asar": true,
-    "productName": "YourAppName",
+    "productName": "Vue3-Electron模板",
+    "copyright": "Copyright ©2020-2099 ${author}",
     "directories": {
         "output": "release/${version}"
     },
     "files": ["dist", "dist-electron"],
+
     "mac": {
-        "target": ["dmg"],
-        "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
+        "target": {
+            "target": "dmg",
+            "arch": ["x64", "arm64"]
+        },
+        "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
+        "icon": "statics/logo/app.ico",
+        "darkModeSupport": true
     },
+
     "win": {
         "target": [
             {
                 "target": "nsis",
-                "arch": ["x64", "ia32"]
+                "arch": ["x64", "ia32", "arm64"]
             }
         ],
-        "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+        "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
+        "icon": "statics/logo/app.ico"
     },
     "nsis": {
         "oneClick": false,
         "perMachine": false,
         "allowToChangeInstallationDirectory": true,
-        "deleteAppDataOnUninstall": false
+        "deleteAppDataOnUninstall": true,
+        "installerIcon": "statics/logo/app.ico",
+        "uninstallerIcon": "statics/logo/app.ico",
+        "installerHeaderIcon": "statics/logo/app.ico",
+        "createDesktopShortcut": true,
+        "createStartMenuShortcut": true
     },
+
     "linux": {
-        "target": ["AppImage"],
-        "artifactName": "${productName}-Linux-${version}.${ext}"
+        "target": [
+            {
+                "target": "rpm",
+                "arch": ["x64", "armv7l", "arm64"]
+            },
+            {
+                "target": "deb",
+                "arch": ["x64", "armv7l", "arm64"]
+            }
+        ],
+        "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
+        "icon": "statics/logo/app.ico"
     }
 }
