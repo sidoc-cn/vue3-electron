@@ -65,36 +65,41 @@ export default defineConfig(({ command, mode }) => {
         },
         plugins: [
             vue(),
+
+            // 0.0> vite-plugin-electron插件配置，该插件使开发 Electron 应用就像开发普通 Vite 项目一样简单，其主要特性就是热重载
             electron({
+                // 主进程配置
                 main: {
-                    // Shortcut of `build.lib.entry`
-                    entry: "electron/main/index.ts",
+                    entry: "electron/main/index.ts", // 主进程人口文件（插件会自动处理主进程和渲染进程的热重载和构建）
                     onstart({ startup }) {
+                        // 当 Electron 应用启动时，onstart 钩子函数会被调用
+                        // 在启动主进程时，检测是否设置了 VSCODE_DEBUG 环境变量，当 VSCode 处于调试模式时，该环境变量为true
                         if (process.env.VSCODE_DEBUG) {
+                            // 如果启用了 VSCode 调试模式，只输出日志信息，不启动主进程（主进程会通过其它调试方式启动）
                             console.log(/* For `.vscode/.debug.script.mjs` */ "[startup] Electron App");
                         } else {
-                            startup();
+                            startup(); // 启动主进程
                         }
                     },
                     vite: {
                         build: {
-                            sourcemap,
-                            minify: isBuild,
-                            outDir: "dist-electron/main",
+                            sourcemap, // 控制是否生成源地图，用于调试
+                            minify: isBuild, // 是否在构建时压缩代码
+                            outDir: "dist-electron/main", // 构建输出目录，主进程的文件将输出到 dist-electron/main 目录中
                             rollupOptions: {
-                                // Some third-party Node.js libraries may not be built correctly by Vite, especially `C/C++` addons,
-                                // we can use `external` to exclude them to ensure they work correctly.
-                                // Others need to put them in `dependencies` to ensure they are collected into `app.asar` after the app is built.
-                                // Of course, this is not absolute, just this way is relatively simple. :)
+                                // 排除某些依赖项（特别是一些无法正确构建的第三方 Node.js 库）以确保它们在 app.asar 中正常工作。
+                                // 一些第三方 Node.js 库可能无法通过 Vite 正确构建，特别是带有 `C/C++` 插件的库，
+                                // 我们可以使用 `external` 来排除这些库，以确保它们正常工作。
+                                // 其他一些库则需要放入 `dependencies` 中，以确保应用程序构建后它们被收集到 `app.asar` 中。
+                                // 当然，这不是绝对的，只是这种方式相对简单一些。:)
                                 external: Object.keys("dependencies" in pkg ? pkg.dependencies : {}),
                             },
                         },
                     },
                 },
+                // 预加载脚本配置（所有配置同上“main”主进程配置）
                 preload: {
-                    // Shortcut of `build.rollupOptions.input`.
-                    // Preload scripts may contain Web assets, so use the `build.rollupOptions.input` instead `build.lib.entry`.
-                    input: "electron/preload/index.ts",
+                    input: "electron/preload/index.ts", // 预加载脚本的入口文件
                     vite: {
                         build: {
                             sourcemap: sourcemap ? "inline" : undefined, // #332
@@ -106,9 +111,9 @@ export default defineConfig(({ command, mode }) => {
                         },
                     },
                 },
-                // Ployfill the Electron and Node.js API for Renderer process.
-                // If you want use Node.js in Renderer process, the `nodeIntegration` needs to be enabled in the Main process.
-                // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
+                // 渲染进程配置
+                // 如果你想在渲染进程中使用 Node.js，则需要在主进程中启用 `nodeIntegration`。
+                // 参见 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
                 renderer: {},
             }),
 
