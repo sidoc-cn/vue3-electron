@@ -27,16 +27,16 @@
             }
         ],
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/icon_512x512.png"
+        "icon": "statics/logo/icon_256x256.png"
     },
     "nsis": {
         "oneClick": false,
         "perMachine": false,
         "allowToChangeInstallationDirectory": true,
         "deleteAppDataOnUninstall": true,
-        "installerIcon": "statics/logo/icon_512x512.png",
-        "uninstallerIcon": "statics/logo/icon_512x512.png",
-        "installerHeaderIcon": "statics/logo/icon_512x512.png",
+        "installerIcon": "statics/logo/icon_256x256.png",
+        "uninstallerIcon": "statics/logo/icon_256x256.png",
+        "installerHeaderIcon": "statics/logo/icon_256x256.png",
         "createDesktopShortcut": true,
         "createStartMenuShortcut": true
     },

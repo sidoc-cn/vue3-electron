@@ -20,8 +20,9 @@
     },
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build && electron-builder",
+        "dev": "vite --mode dev",
+        "dev-prod": "vite --mode dev.prod",
+        "build": "vue-tsc --noEmit && vite build --mode prod && electron-builder",
         "lint": "eslint \"src/**/*.{js,jsx,vue,ts,tsx}\" --fix",
         "preview": "vite preview"
     },
