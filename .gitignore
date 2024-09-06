@@ -28,8 +28,3 @@ release
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
-
-# 自定义忽略 -------------------------------------------------------------------------------------------
-.eslintrc-auto-import.json
-auto-imports.d.ts
-components.d.ts

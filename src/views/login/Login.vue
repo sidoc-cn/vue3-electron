@@ -53,7 +53,7 @@ form.password = defaultPassword;
 // 2.0> 登录实现
 const isLogin = ref(false);
 const login = () => {
-    common.logIn("假装登录");
+    common.logIn("假装登录3");
     router.push("/");
     return;
 
