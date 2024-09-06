@@ -47,7 +47,10 @@ jobs:
             - run: npm install
 
             # 打包编译
-            - run: npm run build
+            - name: Install Node.js
+              run: npm run build
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
