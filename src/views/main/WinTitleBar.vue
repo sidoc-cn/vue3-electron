@@ -10,4 +10,8 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.win-title-bar {
+    -webkit-app-region: drag; /* 可拖拽移动窗体（在Mac下打开调试工具时无效） */
+}
+</style>

@@ -29,8 +29,7 @@ jobs:
             matrix:
                 # 指定要运行的操作系统，当前作业将在以下3个操作系统上分别运行：macos-latest（最新的 macOS 版本）、ubuntu-latest（最新的 Ubuntu 版本）和 windows-latest（最新的 Windows 版本）；
                 # 矩阵(matrix)策略将为每个指定的操作系统创建一个独立的作业实例;
-                # os: [macos-latest, ubuntu-latest, windows-latest]
-                os: [windows-latest]
+                os: [macos-latest, ubuntu-latest, windows-latest]
                 arch: [x64, arm64] # 针对不同的架构
 
         steps:
@@ -58,18 +57,6 @@ jobs:
               id: get_arch
               run: echo "PLATFORM_ARCH=$(uname -m)" >> $GITHUB_ENV
 
-            - name: Generate UUID (Linux/macOS)
-              if: runner.os != 'Windows'
-              run: |
-                  UUID=$(uuidgen)
-                  echo "UUID=$UUID" >> $GITHUB_ENV
-
-            - name: Generate UUID (Windows)
-              if: runner.os == 'Windows'
-              run: |
-                  $uuid = (wmic csproduct get uuid | Select-String -Pattern '^[0-9A-F-]{36}$').ToString().Trim()
-                  echo "UUID=$uuid" >> $GITHUB_ENV
-
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
             #   - Github Actions的每月免费运行时长为2000分钟，在 Windows 和 macOS 系统上运行的作业，其消耗的分钟数是在 Linux 的2~10倍；
@@ -84,7 +71,7 @@ jobs:
               with:
                   # 保存到 Artifact 的文件名称
                   # 如果同时运行了多个作业，运行中的各个作业正在构建相同名称的文件时，会导致报错，为了避免运行中的作业的文件同名，此处加UUID
-                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ env.UUID }}
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ github.run_id }}-${{ github.job }}-${{ github.run_number }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件（此举会覆盖 Artifact 空间中的同名文件）

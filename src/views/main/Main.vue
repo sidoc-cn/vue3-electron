@@ -1,10 +1,14 @@
 <template>
     <div class="main">
-        <div></div>
+        <MacTitleBar />
+        <WinTitleBar />
     </div>
 </template>
 
 <script lang="ts" setup>
+import MacTitleBar from "./MacTitleBar.vue";
+import WinTitleBar from "./WinTitleBar.vue";
+
 const test = ref("");
 console.log(test);
 
