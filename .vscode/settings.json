@@ -28,8 +28,7 @@
     // 保存时使用指定插件格式化
     // !使用三方插件ESLint进行格式化；使用插件格式化时，请关闭VSCode自身的格式化，以避免冲突
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.fixAll.stylelint": "explicit"
+        "source.fixAll.eslint": "explicit"
     },
 
     // 使用prettier作为各语言文件的默认格式化工具

@@ -1,40 +1,46 @@
 // 全局基础样式
 
 // 1.0> 全局变量  --------------------------------------------------------------------------------------
+
 :root {
     // 1.1> 自定义全局变量
-
 
     // 顶栏高度
     --top-bar-height: 3.125rem;
 
-
-    // 1.2> 覆盖 element-plus 全局变量 
+    // 1.2> 覆盖 element-plus 全局变量
 
     // 导航菜单 - 高度
     --el-menu-item-height: 3.5rem !important;
 
     // 导航菜单 - 宽度
-    --menu-nav-width: 12.5rem; 
+    --menu-nav-width: 12.5rem;
 
     // 导航菜单 - 字体
-    --el-menu-item-font-size:1rem !important;
+    --el-menu-item-font-size: 1rem !important;
 }
 
-
 // 2.0> 全局基础样式 ---------------------------------------------------------------------------------
-html, body, #app {
+html,
+body,
+#app {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-
-    // color: #333;
     font-size: 100%;
-    font-family: MicrosoftYaHei-Bold, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    font-family:
+        MicrosoftYaHei-Bold,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
         "Segoe UI Emoji";
-    background-color: var(--el-bg-color);
-    color: var(--text-color);
+    background-color: rgb(234, 234, 234);
+    color: #333;
 }
 
 // 所有元素统一样式
@@ -42,12 +48,14 @@ html, body, #app {
     box-sizing: border-box;
 }
 
-
 // 3.0> 禁用元素获取焦点后的黑色边框 ------------------------------------------------------------------
-div:focus,div:focus-visible,
-input:focus,input:focus-visible,
-span:focus,span:focus-visible {
-    box-shadow:none !important;
+div:focus,
+div:focus-visible,
+input:focus,
+input:focus-visible,
+span:focus,
+span:focus-visible {
+    box-shadow: none !important;
     outline: none !important;
 }
 
@@ -70,8 +78,6 @@ span:focus,span:focus-visible {
 ::-webkit-scrollbar-corner {
     background-color: rgb(255 0 0 / 0%);
 }
-
-
 
 // 6.0> 全局快捷样式 --------------------------------------------------------------------------
 
@@ -157,4 +163,3 @@ span:focus,span:focus-visible {
     -webkit-box-orient: horizontal;
     -webkit-line-clamp: none;
 }
-

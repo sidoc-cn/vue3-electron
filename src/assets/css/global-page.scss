@@ -1,7 +1,7 @@
 // 全局页面样式
 
 // 1.0 页面内容 ----------------------------------------------------------------------------------
-.global-page-content{
+.global-page-content {
     background-color: #fff;
     padding: 1.25rem;
     overflow: auto;
@@ -9,19 +9,15 @@
 }
 
 // 2.0 页面功能块样式 ----------------------------------------------------------------------------
-.global-block-form{
-    display: flex;
-    flex-direction: column;
-    margin-bottom:1.25rem;
-}
-
-
-
-// 3.0 页面功能块详情样式 -------------------------------------------------------------------------
-.global-block-list{
+.global-block-form {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.25rem;
 }
 
-
+// 3.0 页面功能块详情样式 -------------------------------------------------------------------------
+.global-block-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}

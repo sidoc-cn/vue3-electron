@@ -1,13 +1,23 @@
 <template>
     <div class="main">
-        <MacTitleBar />
-        <WinTitleBar />
+        <TitleBar />
+        <div class="content">
+            <AccountInfo />
+            <TunnelList />
+            <div class="bottom-part">
+                <RuntimeLog />
+                <Tutorial />
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import MacTitleBar from "./MacTitleBar.vue";
-import WinTitleBar from "./WinTitleBar.vue";
+import TitleBar from "./TitleBar.vue";
+import AccountInfo from "@/views/account-info/AccountInfo.vue";
+import TunnelList from "@/views/tunnel-list/TunnelList.vue";
+import RuntimeLog from "@/views/runtime-log/RuntimeLog.vue";
+import Tutorial from "@/views/tutorial/Tutorial.vue";
 
 const test = ref("");
 console.log(test);
@@ -17,4 +27,19 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 0;
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        background-color: #fff;
+    }
+}
+</style>
