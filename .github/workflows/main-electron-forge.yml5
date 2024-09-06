@@ -3,7 +3,7 @@ name: main-electron-forge
 
 #! 禁用该工作流，当前项目使用 electron-builder 进行编译打包
 # 当前工作流触发条件：此处是每次推送代码时触发
-# on: push
+on: push
 
 # 定义工作流中要执行的作业
 jobs:
