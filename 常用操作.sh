@@ -3,7 +3,7 @@
 git remote add github git@github.com:sidoc-cn/vue3-electron.git
 
 # 1.2> push代码到Github仓库
-git push github
+git push github master
 
 
 

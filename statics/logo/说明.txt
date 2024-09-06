@@ -1,3 +1,0 @@
-app.png用于Linux平台
-app.ico用户Windows平台 
-app.icns用户Mac平台
