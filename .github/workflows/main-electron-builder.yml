@@ -66,12 +66,7 @@ jobs:
             - name: Get version from package.json (Windows)
               if: runner.os == 'Windows'
               run: |
-                  for /f "delims=" %%i in ('type package.json ^| findstr /c:"\"version\"":') do (
-                    for /f "tokens=2 delims=:, " %%a in ("%%i") do (
-                      set VERSION=%%a
-                    )
-                  )
-                  echo VERSION=%VERSION% >> $GITHUB_ENV
+                  powershell -Command "$version = (Get-Content package.json | ConvertFrom-Json).version; [System.Environment]::SetEnvironmentVariable('VERSION', $version, [System.EnvironmentVariableTarget]::Machine)"
 
             - name: Generate UUID (Linux/macOS)
               if: runner.os != 'Windows'
