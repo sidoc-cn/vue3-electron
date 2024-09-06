@@ -52,6 +52,16 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+            # 从根目录的package.json中获取版本号
+            - name: Get version from package.json
+              id: get_version
+              run: echo "PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
+            # 获取架构
+            - name: Get platform architecture
+              id: get_arch
+              run: echo "PLATFORM_ARCH=$(uname -m)" >> $GITHUB_ENV
+
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
             #   - Github Actions的每月免费运行时长为2000分钟，在 Windows 和 macOS 系统上运行的作业，其消耗的分钟数是在 Linux 的2~10倍；
@@ -65,7 +75,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   # 保存到 Artifact 的文件名称
-                  name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ env.PACKAGE_VERSION }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件

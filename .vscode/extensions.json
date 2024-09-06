@@ -26,6 +26,7 @@
         "wayou.vscode-todo-highlight",
         "elemefe.vscode-element-helper",
         "vue.volar",
-        "uctakeoff.vscode-counter"
-    ],
+        "uctakeoff.vscode-counter",
+        "github.vscode-github-actions"
+    ]
 }
