@@ -70,11 +70,11 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   # 保存到 Artifact 的文件名称
-                  #   name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
+                  # 如果同时运行了多个作业，正在运行的作业
                   name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}-${{ env.uuid }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
-                  # 覆盖同名文件
+                  # 覆盖同名文件（此举会覆盖 Artifact 空间中的同名文件）
                   overwrite: true
                   # 设置文件的保留时长为3天
                   retention-days: 3
