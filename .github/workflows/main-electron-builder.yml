@@ -57,6 +57,10 @@ jobs:
               id: get_arch
               run: echo "PLATFORM_ARCH=$(uname -m)" >> $GITHUB_ENV
 
+            # 生成UUID
+            - name: Generate a UUID
+              run: echo "UUID=$(uuidgen)" >> $GITHUB_ENV
+
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
             #   - Github Actions的每月免费运行时长为2000分钟，在 Windows 和 macOS 系统上运行的作业，其消耗的分钟数是在 Linux 的2~10倍；
@@ -71,7 +75,7 @@ jobs:
               with:
                   # 保存到 Artifact 的文件名称
                   # 如果同时运行了多个作业，运行中的各个作业正在构建相同名称的文件时，会导致报错，为了避免运行中的作业的文件同名，此处加UUID
-                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ matrix.vector.jobname }}-${{ matrix.vector.pool }}
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}-${{ env.uuid }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件（此举会覆盖 Artifact 空间中的同名文件）
