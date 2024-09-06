@@ -34,9 +34,9 @@
         "perMachine": false,
         "allowToChangeInstallationDirectory": true,
         "deleteAppDataOnUninstall": true,
-        "installerIcon": "statics/logo/app.ico",
-        "uninstallerIcon": "statics/logo/app.ico",
-        "installerHeaderIcon": "statics/logo/app.ico",
+        "installerIcon": "statics/logo/icon_512x512.png",
+        "uninstallerIcon": "statics/logo/icon_512x512.png",
+        "installerHeaderIcon": "statics/logo/icon_512x512.png",
         "createDesktopShortcut": true,
         "createStartMenuShortcut": true
     },
