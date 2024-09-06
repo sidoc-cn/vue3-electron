@@ -71,7 +71,7 @@ jobs:
               with:
                   # 保存到 Artifact 的文件名称
                   #   name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
-                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}-${{inputs.context}}-${{inputs.job-index}}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件
