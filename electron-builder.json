@@ -15,7 +15,7 @@
             "arch": ["x64", "arm64"]
         },
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/icon_512x512.png",
+        "icon": "statics/logo/app-256-512.icns",
         "darkModeSupport": true
     },
 
@@ -27,16 +27,16 @@
             }
         ],
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/icon_256x256.png"
+        "icon": "statics/logo/app-256.ico"
     },
     "nsis": {
         "oneClick": false,
         "perMachine": false,
         "allowToChangeInstallationDirectory": true,
         "deleteAppDataOnUninstall": true,
-        "installerIcon": "statics/logo/icon_256x256.png",
-        "uninstallerIcon": "statics/logo/icon_256x256.png",
-        "installerHeaderIcon": "statics/logo/icon_256x256.png",
+        "installerIcon": "statics/logo/app-256.ico",
+        "uninstallerIcon": "statics/logo/app-256.ico",
+        "installerHeaderIcon": "statics/logo/app-256.ico",
         "createDesktopShortcut": true,
         "createStartMenuShortcut": true
     },
