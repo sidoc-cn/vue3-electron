@@ -1,0 +1,57 @@
+# 当前工作流的名称
+name: main-electron-builder
+
+# 当前工作流触发条件：此处是每次推送代码时触发
+on: push
+
+# 定义工作流中要执行的作业
+jobs:
+  release:
+    # 指定当前作业将运行在哪些操作系统上；此处使用矩阵(matrix)策略根据不同的操作系统运行多次作业
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        # 指定要运行的操作系统，当前作业将在以下3个操作系统上分别运行：macos-latest（最新的 macOS 版本）、ubuntu-latest（最新的 Ubuntu 版本）和 windows-latest（最新的 Windows 版本）；
+        # 矩阵(matrix)策略将为每个指定的操作系统创建一个独立的作业实例;
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        arch: [x64, arm64, ia32]  # 针对不同的架构
+
+    steps:
+      # 使用 actions/checkout 插件检出仓库中的代码
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+
+      # 安装指定版本的 Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 安装项目依赖
+      - run: npm install
+
+      # 打包编译
+      - run: npm run build
+
+      # 上传 out/make/ 文件夹至 Artifacts 
+      # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
+      #   - Github Actions的每月免费运行时长为2000分钟，在 Windows 和 macOS 系统上运行的作业，其消耗的分钟数是在 Linux 的2~10倍；
+      #   - Artifact是Github提供的临时存储文件的地方，是Github Actions的一部分，其占用总的私有空间(500MB)大小，超出后会收费；
+      #   - 文件在Artifact中默认可以保存90天，超过有效期的文件会被自动删除；
+      #   - Artifact将工作流生成的文件称为工件；即，Artifact是专门用来保存工件的;
+      #   - 相同名称的文件保存到Artifact中时会发生冲突，overwrite:true表示覆盖同名文件；
+      # 因为Artifacts的免费空间大小最多只有500MB，因此设置较短的文件有效期，可以尽量节约空间大小；
+      # 开启同名文件覆盖，可以减少文件数量，以尽量节约空间大小；
+      - name: Upload Build Artifacts 
+        uses: actions/upload-artifact@v4
+        with: 
+           # 保存到 Artifact 的文件名称
+           name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
+           # 要保存到 Artifact 中的文件或目录
+           path: out/make/
+           # 覆盖同名文件
+           overwrite: true
+           # 设置文件的保留时长为3天
+           retention-days: 3
