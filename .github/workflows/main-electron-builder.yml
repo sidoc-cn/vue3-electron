@@ -57,13 +57,34 @@ jobs:
               id: get_arch
               run: echo "PLATFORM_ARCH=$(uname -m)" >> $GITHUB_ENV
 
-            - name: Get version from package.json using Node.js
-              run: echo "VERSION=$(node -e \"console.log(require('./package.json').version)\")" >> $GITHUB_ENV
-
-            # 生成UUID
-            - name: Generate a UUID
+            - name: Get version from package.json (Linux/macOS)
+              if: runner.os != 'Windows'
               run: |
-                  echo "UUID=$(node -e \"console.log(require('uuid').v4())\")" >> $GITHUB_ENV
+                  VERSION=$(cat package.json | grep '"version":' | sed -E 's/.*"version": "(.*)".*/\1/')
+                  echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+            - name: Get version from package.json (Windows)
+              if: runner.os == 'Windows'
+              run: |
+                  for /f "delims=" %%i in ('type package.json ^| findstr /c:"\"version\"":') do (
+                    for /f "tokens=2 delims=:, " %%a in ("%%i") do (
+                      set VERSION=%%a
+                    )
+                  )
+                  echo VERSION=%VERSION% >> $GITHUB_ENV
+
+            - name: Generate UUID (Linux/macOS)
+              if: runner.os != 'Windows'
+              run: |
+                  UUID=$(uuidgen)
+                  echo "UUID=$UUID" >> $GITHUB_ENV
+
+            - name: Generate UUID (Windows)
+              if: runner.os == 'Windows'
+              run: |
+                  powershell -Command "[guid]::NewGuid().ToString()" | Out-File -FilePath uuid.txt -Encoding utf8
+                  $uuid = Get-Content uuid.txt
+                  echo "UUID=$uuid" >> $GITHUB_ENV
 
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
