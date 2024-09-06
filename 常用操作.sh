@@ -18,7 +18,7 @@ git push github
 
 # 2.2> 通过token登录github（仔细看命令选中的指引）
 gh auth login
-# 需要根据Github授权token登录，此处已经创建了token(保密)：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
+
 
 # 2.3> 列表指定仓库中的所有工件流
 # gh run list --repo <用户名>/<仓库名>
