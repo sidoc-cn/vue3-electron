@@ -70,8 +70,8 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   # 保存到 Artifact 的文件名称
-                  # 如果同时运行了多个作业，正在运行的作业
-                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}-${{ env.uuid }}
+                  # 如果同时运行了多个作业，运行中的各个作业正在构建相同名称的文件时，会导致报错，为了避免运行中的作业的文件同名，此处加UUID
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ matrix.vector.jobname }}-${{ matrix.vector.pool }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件（此举会覆盖 Artifact 空间中的同名文件）
