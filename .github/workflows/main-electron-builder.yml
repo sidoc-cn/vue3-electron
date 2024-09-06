@@ -2,9 +2,9 @@
 name: main-electron-builder
 
 # 当前工作流触发条件：此处是每次推送代码到master分支时触发
+# paths-ignore表示忽略的文件或路径，即paths-ignore声明的文件或路径下的文件发生push时，不会触发当前工作流
 on: push
     branches: [master]
-    # paths-ignore表示忽略的文件或路径，即paths-ignore声明的文件或路径下的文件发生push时，不会触发当前工作流
     paths-ignore:
       - "**.md"
       - "**.spec.js"
