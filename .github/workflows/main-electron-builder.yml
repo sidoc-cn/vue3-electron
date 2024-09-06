@@ -16,6 +16,8 @@ on:
       - ".gitignore"
       - ".github/**"
       - "!.github/workflows/build.yml"
+      - "!.github/workflows/main-electron-builder.yml"
+      - "!.github/workflows/main-electron-forge.yml"
 
 # 定义工作流中要执行的作业
 jobs:
