@@ -62,7 +62,8 @@ jobs:
 
             # 生成UUID
             - name: Generate a UUID
-              run: echo "UUID=$(node -e \"console.log(require('uuid').v4())\")" >> $GITHUB_ENV
+              run: |
+                  echo "UUID=$(node -e \"console.log(require('uuid').v4())\")" >> $GITHUB_ENV
 
             # 上传 out/make/ 文件夹至 Artifacts
             # 公共仓库可以免费使用Github Actions；但私有仓库有如下限制：
