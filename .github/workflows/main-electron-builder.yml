@@ -52,11 +52,6 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # 从根目录的package.json中获取版本号
-            - name: Get version from package.json
-              id: get_version
-              run: echo "PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
-
             # 获取架构
             - name: Get platform architecture
               id: get_arch
@@ -75,8 +70,8 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   # 保存到 Artifact 的文件名称
-                  # name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
-                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ env.PACKAGE_VERSION }}
+                  #   name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
+                  name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-v${{ env.PACKAGE_VERSION }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
                   # 覆盖同名文件

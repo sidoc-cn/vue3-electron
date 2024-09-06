@@ -6,6 +6,7 @@ git remote add github git@github.com:sidoc-cn/vue3-electron.git
 git push github
 
 
+
 # 2.0> 通过命令行从GitHub Artifacts下载工件文件 ----------------------------------------------------------------------
 # 2.1> 安装github命令行工具gh
 (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
@@ -17,7 +18,10 @@ git push github
 && sudo apt install gh -y
 
 # 2.2> 通过token登录github（仔细看命令选中的指引）
+# 登录Github
 gh auth login
+# 退出登录
+gh auth logout
 
 
 # 2.3> 列表指定仓库中的所有工件流
