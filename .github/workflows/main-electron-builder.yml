@@ -30,7 +30,7 @@ jobs:
                 # 指定要运行的操作系统，当前作业将在以下3个操作系统上分别运行：macos-latest（最新的 macOS 版本）、ubuntu-latest（最新的 Ubuntu 版本）和 windows-latest（最新的 Windows 版本）；
                 # 矩阵(matrix)策略将为每个指定的操作系统创建一个独立的作业实例;
                 os: [macos-latest, ubuntu-latest, windows-latest]
-                # arch: [x64, arm64, ia32]  # 针对不同的架构
+                arch: [x64, arm64, ia32] # 针对不同的架构
 
         steps:
             # 使用 actions/checkout 插件检出仓库中的代码
