@@ -66,8 +66,7 @@ jobs:
             - name: Generate UUID (Windows)
               if: runner.os == 'Windows'
               run: |
-                  powershell -Command "[guid]::NewGuid().ToString()" | Out-File -FilePath uuid.txt -Encoding utf8
-                  $uuid = Get-Content uuid.txt
+                  $uuid = uuidgen
                   echo "UUID=$uuid" >> $GITHUB_ENV
 
             # 上传 out/make/ 文件夹至 Artifacts
