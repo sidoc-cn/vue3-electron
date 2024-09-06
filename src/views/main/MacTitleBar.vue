@@ -1,12 +1,9 @@
 <template>
-    <div class="main">
-        <div></div>
-    </div>
+    <div class="mac-title-bar">Mac标题栏</div>
 </template>
 
 <script lang="ts" setup>
 const test = ref("");
-console.log(test);
 
 onMounted(() => {
     console.log("1");

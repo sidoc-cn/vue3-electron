@@ -1,12 +1,9 @@
 <template>
-    <div class="main">
-        <div></div>
-    </div>
+    <div class="win-title-bar">Windows和linux标题栏</div>
 </template>
 
 <script lang="ts" setup>
 const test = ref("");
-console.log(test);
 
 onMounted(() => {
     console.log("1");
