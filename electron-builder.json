@@ -15,7 +15,7 @@
             "arch": ["x64", "arm64"]
         },
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/app.ico",
+        "icon": "statics/logo/icon_512x512.png",
         "darkModeSupport": true
     },
 
@@ -27,7 +27,7 @@
             }
         ],
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/app.ico"
+        "icon": "statics/logo/icon_512x512.png"
     },
     "nsis": {
         "oneClick": false,
@@ -53,6 +53,6 @@
             }
         ],
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
-        "icon": "statics/logo/app.ico"
+        "icon": "statics/logo/icon_512x512.png"
     }
 }
