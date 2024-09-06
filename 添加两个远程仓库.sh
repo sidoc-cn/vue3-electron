@@ -9,7 +9,7 @@ git remote -v
 # 2.0> 删除一个指定名称的仓库
 git remote remove
 
-# 3.0> 添加一个指定名称和地址的仓库
+# 3.0> 添加一个指定名称的仓库
 git remote add github git@github.com:sidoc-cn/vue3-electron.git
 
 # 3.1> 添加新的仓库后，先要执行如下代码
