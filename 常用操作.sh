@@ -1,4 +1,9 @@
 
+# 1.0> 添加一个Github仓库（参考文档：https://www.sidoc.cn/article/1505.html）
+git remote add github git@github.com:sidoc-cn/vue3-electron.git
+
+# 1.2> push代码到Github仓库
+git push github
 
 
 # 2.0> 通过命令行从GitHub Artifacts下载工件文件 ----------------------------------------------------------------------
