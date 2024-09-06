@@ -25,6 +25,7 @@ gh auth login
 gh run list --repo sidoc-cn/vue3-electron
 
 # 2.4> 下载指定仓库中、指定ID的工作流中的所有文件到当前目录下
+# 建议将文件统一下载到 /home/ubuntu/files 目录下
 # gh run download <工作流ID(run_id)> --repo <用户名>/<仓库名>
 gh run download 10730739809 --repo sidoc-cn/vue3-electron
 # 在国外服务器上下载GitHub Artifacts工件的速度约为5Mbps/s； 
