@@ -75,6 +75,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   # 保存到 Artifact 的文件名称
+                  # name: electron-app-${{ matrix.os }}-${{ matrix.version }}-${{ matrix.arch }}
                   name: electron-app-${{ matrix.os }}-${{ env.PLATFORM_ARCH }}-${{ env.PACKAGE_VERSION }}
                   # 要保存到 Artifact 中的文件或目录
                   path: release/
