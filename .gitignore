@@ -28,3 +28,8 @@ release
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+#! 不能忽略如下自动生成的文件，否则在Gihub Actions在编译打包时，tsc --noEmit 命令进行类型检查时无法通过
+# .eslintrc-auto-import.json
+# auto-imports.d.ts
+# components.d.ts
