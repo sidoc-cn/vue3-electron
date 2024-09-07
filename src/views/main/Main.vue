@@ -40,6 +40,12 @@ onMounted(() => {
         flex-direction: column;
         flex-grow: 1;
         background-color: #fff;
+
+        .bottom-part {
+            display: flex;
+            height: 200px;
+            background-color: rgb(178, 252, 217);
+        }
     }
 }
 </style>

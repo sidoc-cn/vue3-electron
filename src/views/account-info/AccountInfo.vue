@@ -1,5 +1,5 @@
 <template>
-    <div class="类名与文件同名"></div>
+    <div class="account-info">hmg m um</div>
 </template>
 
 <script lang="ts" setup>
@@ -10,4 +10,9 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.account-info {
+    background: rgb(254, 136, 136);
+    height: 100px;
+}
+</style>

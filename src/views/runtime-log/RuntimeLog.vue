@@ -1,5 +1,5 @@
 <template>
-    <div class="类名与文件同名"></div>
+    <div class="runtime-log"></div>
 </template>
 
 <script lang="ts" setup>
@@ -10,4 +10,9 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.runtime-log {
+    width: 60%;
+    background-color: rgba(250, 235, 215, 0.811);
+}
+</style>

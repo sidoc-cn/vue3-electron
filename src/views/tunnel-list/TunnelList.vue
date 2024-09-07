@@ -1,5 +1,5 @@
 <template>
-    <div class="类名与文件同名"></div>
+    <div class="tunnel-list"></div>
 </template>
 
 <script lang="ts" setup>
@@ -10,4 +10,10 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.tunnel-list {
+    background: rgb(232, 255, 253);
+    display: flex;
+    flex-grow: 1;
+}
+</style>
