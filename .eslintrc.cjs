@@ -1,4 +1,8 @@
+import globals from "globals";
 module.exports = {
+    globals: {
+        ...globals.browser, // 自动识别所有自定义全局变量
+    },
     env: {
         browser: true,
         es2021: true,
@@ -28,5 +32,6 @@ module.exports = {
         "no-unused-vars": "off", // 关闭Javascript变量未使用时的校验，在Typescript项目中必须禁用此校验，否则会误报
         "@typescript-eslint/no-unused-vars": "warn", // Typescript变量未使用时，仅发出警告，而不阻止程序运行
         "@typescript-eslint/no-unused-expressions": "off",
+        "vue/comment-directive": "off",
     },
 };

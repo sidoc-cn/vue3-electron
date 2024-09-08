@@ -29,6 +29,6 @@
         "./.eslintrc-auto-import.json"
     ],
     // TS编译性能优化：指定要从编译中排除的文件列表.
-    "exclude": ["**/node_modules", "**/.*/", "**/public", "**/dist", "**/env", "**/.vscode"],
+    "exclude": ["**/node_modules", "**/public", "**/dist", "**/env", "**/.vscode"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

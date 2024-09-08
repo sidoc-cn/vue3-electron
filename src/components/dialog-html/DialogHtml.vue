@@ -4,14 +4,11 @@
             v-bind="$attrs"
             class="dialog-html"
             v-model="visible"
-            :destroy-on-close="true"
-            :close-on-click-modal="false"
-            :close-on-press-escape="false"
-            :show-close="false"
             :width="props.options.width"
             :top="props.options.top"
             :draggable="props.options.draggable?.value !== undefined ? props.options.draggable?.value : true"
         >
+            {{ $attrs }}
             <!-- 自定义头部 -->
             <template #header>
                 <div class="title-bar">

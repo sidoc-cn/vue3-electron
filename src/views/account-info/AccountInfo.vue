@@ -2,8 +2,10 @@
     <div class="account-info">
         <!-- Tab栏 ------------------------- -->
         <div class="tab-bar">
-            <div>固定带宽</div>
-            <div>按量付费</div>
+            {{ UserInfo }}
+            {{ CalculationMethod.FixedBandwidth }}
+            <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">固定带宽</div>
+            <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">按量付费</div>
 
             <!-- 账户功能 --------------------------- -->
             <div class="account-function">
@@ -19,10 +21,7 @@
         </div>
 
         <!-- 套餐信息 ------------- -->
-        <div class="package-info">
-            <div>带宽：2Mbps</div>
-            <div>隧道数：1/10</div>
-        </div>
+        <PackageInfo />
 
         <!-- 底部宣传信息和服务支持 ---------------- -->
         <div class="bottom-part">
@@ -31,25 +30,49 @@
 
             <!-- 服务支持 -->
             <div class="service-support">
-                <div>
+                <div @click="openWeChatSupport(CustomerServiceMethod)">
                     <img src="@/assets/logo.png" />
                     微信交流群
                 </div>
-                <div>
+                <div @click="openWeChatSupport('customer_service')">
                     <img src="@/assets/logo.png" />
                     客服/技术支持
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 微信讨论群/技术支持 -->
+    <DialogHtml :options="dialogConfig">
+        <WeChatSupport :type="weChatSupportMethod" />
+    </DialogHtml>
 </template>
 
 <script lang="ts" setup>
-const test = ref("");
+import UserInfo from "./account-function/UserInfo.vue";
+import PackageInfo from "./PackageInfo.vue";
+import WeChatSupport from "./WeChatSupport.vue";
+import { useGlobalStore } from "@/store/global";
 
-onMounted(() => {
-    console.log("1");
-});
+const globalStore = useGlobalStore();
+
+const switchCalculationMethod = (method: CalculationMethod) => {
+    globalStore.calculationMethod = method;
+};
+
+// 微信讨论群/技术支持
+const weChatSupportMethod = ref(CustomerServiceMethod.WeChatGroup); //
+const dialogConfig: import("@/components/dialog-html/DialogHtml.vue").DialogProps = {
+    title: ref("标题"),
+    visible: ref(false),
+    width: "30%",
+    actionButton: [],
+};
+const openWeChatSupport = (type: CustomerServiceMethod) => {
+    // type的值为：discussion_group(微信交流群)、customer_service(技术支持)
+    weChatSupportMethod.value = type;
+    dialogConfig.visible.value = true;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -84,11 +107,6 @@ onMounted(() => {
         }
     }
 
-    // 3.0> 套餐信息 ------------------------------------------------------------
-    .package-info {
-        display: flex;
-    }
-
     // 4.0> 底部宣传信息和服务支持
     .bottom-part {
         display: flex;
@@ -106,6 +124,7 @@ onMounted(() => {
             display: flex;
             margin-left: auto;
             > * {
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 padding: 0px 4px;

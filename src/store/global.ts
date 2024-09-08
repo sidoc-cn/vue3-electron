@@ -8,18 +8,17 @@ import { defineStore } from "pinia";
 export const useGlobalStore = defineStore("global", {
     state: () => {
         return {
-            config: [] as ConfigInfo[], // 生产环境下，动态缓存配置
-            authList: [], // 权限列表
-            keepPage: [] as PageItem[], // 所有缓存的页面
-            keepPageData: new Map<string, object>(), // 所有缓存的页面
-            userInfo: null as null | UserInfoType,
-            routers: [] as RouterType[],
+            /** 用户信息 */
+            userInfo: null as null | UserInfo,
+
+            /** 计算方式 */
+            calculationMethod: CalculationMethod.FixedBandwidth,
         };
     },
     actions: {
         update(name: string) {
             console.log(name);
-            this.config.length = 0;
+            // this.config.length = 0;
         },
     },
 });

@@ -33,7 +33,7 @@ onMounted(() => {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     padding-top: 0;
     .content {
         display: flex;

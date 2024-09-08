@@ -40,8 +40,12 @@ onMounted(() => {
         grid-template-columns: 50% 50%;
         background-color: rgb(226, 226, 226);
         .item {
+            cursor: pointer;
             font-size: 15px;
             padding: 4px 20px;
+            &:hover {
+                color: blue;
+            }
         }
     }
 }
