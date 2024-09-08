@@ -1,5 +1,5 @@
 <template>
-    <div class="account-info">
+    <div class="account-info-index">
         <!-- Tab栏 ------------------------- -->
         <div class="tab-bar">
             <div class="tab" @click="globalStore.calculationMethod = CalculationMethod.FixedBandwidth">固定带宽</div>
@@ -7,14 +7,26 @@
 
             <!-- 账户功能 --------------------------- -->
             <div class="account-function">
-                <div>免费与付费</div>
-                <div>导出配置</div>
-                <div>下载客户端</div>
-                <div>访问官网</div>
-                <div>
-                    <img src="@/assets/logo.png" />
-                    张三
-                </div>
+                <div class="item">免费与付费</div>
+                <div class="item">导出配置</div>
+                <div class="item">下载客户端</div>
+                <div class="item">访问官网</div>
+                <el-dropdown>
+                    <span class="item el-dropdown-link">
+                        <img src="@/assets/logo.png" />
+                        张三
+                        <el-icon class="el-icon--right">
+                            <arrow-down />
+                        </el-icon>
+                    </span>
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item>个人信息</el-dropdown-item>
+                            <el-dropdown-item>社交账号</el-dropdown-item>
+                            <el-dropdown-item divided @click="common.signOut(router)">退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
             </div>
         </div>
 
@@ -53,6 +65,7 @@ import WeChatSupport from "./WeChatSupport.vue";
 import { useGlobalStore } from "@/store/global";
 
 const globalStore = useGlobalStore();
+const router = useRouter();
 
 // 微信讨论群/技术支持
 const weChatSupportMethod = ref(CustomerServiceMethod.WeChatGroup); //
@@ -70,7 +83,7 @@ const openWeChatSupport = (type: CustomerServiceMethod) => {
 </script>
 
 <style lang="scss" scoped>
-.account-info {
+.account-info-index {
     display: flex;
     flex-direction: column;
     background: rgb(254, 136, 136);
@@ -90,7 +103,7 @@ const openWeChatSupport = (type: CustomerServiceMethod) => {
     .tab-bar > .account-function {
         margin-left: auto;
         display: flex;
-        > * {
+        .item {
             display: flex;
             align-items: center;
             padding: 2px 8px;

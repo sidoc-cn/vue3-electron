@@ -1,4 +1,5 @@
 <template>
+    <div class="drag-bar"></div>
     <div class="login">
         <div class="title">Vue3-App</div>
 
@@ -82,6 +83,19 @@ const login = () => {
 </script>
 
 <style lang="scss" scoped>
+// 窗体拖动区域
+.drag-bar {
+    // background-color: red;
+    height: 55px;
+    width: 100%;
+    -webkit-app-region: drag; /* 可拖拽移动窗体（在Mac下打开调试工具时无效） */
+    * {
+        /* drag会导致元素无法选中或点击，因此子元素取消drag */
+        -webkit-app-region: no-drag;
+    }
+}
+
+// 登录页面主体
 .login {
     display: flex;
     flex-direction: column;

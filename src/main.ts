@@ -42,10 +42,16 @@ app.use(ElementPlus, {
     locale: zhCn,
 });
 
-// 6.0 引入字体
+// 6.0> 注册所有 Element plus 图标
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component);
+}
+
+// 7.0 引入字体
 import "./assets/fonts/fonts.scss";
 
-// 7.0> 注册SVG插件
+// 8.0> 注册SVG插件
 import "virtual:svg-icons-register";
 
 app.mount("#app").$nextTick(() => {

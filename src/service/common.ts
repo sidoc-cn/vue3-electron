@@ -1,6 +1,7 @@
 // 任务业务公共方法
 
 import { useGlobalStore } from "@/store/global";
+import { Router } from "vue-router";
 
 // 1.0> 登录 -----------------------------------------------------------------------------------------------------------
 const logIn = (token: string) => {
@@ -8,11 +9,11 @@ const logIn = (token: string) => {
 };
 
 // 1.1> 退出登录
-const signOut = () => {
+const signOut = (router?: Router) => {
     localStorage.removeItem("token");
     const globalStore = useGlobalStore();
     globalStore.userInfo = null;
-    globalStore.routers = [];
+    router && router.replace("/login");
 };
 
 // 2.0> 获取token ---------------------------------------------------------------------------------------------------

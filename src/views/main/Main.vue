@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import TitleBar from "./TitleBar.vue";
-import AccountInfo from "@/views/account-info/AccountInfo.vue";
+import AccountInfo from "@/views/account-info/Index.vue";
 import TunnelList from "@/views/tunnel-list/TunnelList.vue";
 import RuntimeLog from "@/views/runtime-log/RuntimeLog.vue";
 import Tutorial from "@/views/tutorial/Tutorial.vue";

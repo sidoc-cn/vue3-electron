@@ -6,11 +6,14 @@ import { defineStore } from "pinia";
 
 // 你可以对 `defineStore()` 的返回值进行任意命名，但最好使用 store 的名字，同时以 `use` 开头且以 `Store` 结尾。(比如 `useUserStore`，`useCartStore`，`useProductStore`)
 // 第一个参数是你的应用中 Store 的唯一 ID。
-export const useGlobalStore = defineStore("global", {
+export const useAccountInfoStore = defineStore("account-info", {
     state: () => {
         return {
-            /** 用户信息 */
-            userInfo: null as null | UserInfo,
+            /** 账户带宽，单位：Mbps */
+            bandwidth: 3,
+
+            /** 账号流量包，单位：Gbps */
+            dataPackage: 1,
 
             /** 计算方式 */
             calculationMethod: CalculationMethod.FixedBandwidth,
