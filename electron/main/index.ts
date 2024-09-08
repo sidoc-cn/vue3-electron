@@ -46,15 +46,16 @@ async function createWindow() {
         title: "Main window",
         icon: path.join(process.env.VITE_PUBLIC, "favicon.ico"),
         width: 900,
-        height: 856,
+        height: 600,
         minWidth: 900,
-        minHeight: 856,
+        minHeight: 600,
         center: true,
         backgroundColor: "#fff",
         // frame设置为false会将标题栏和窗口控制按钮全部隐藏
         frame: process.platform === "darwin" ? true : false,
         // 窗口标题栏样式（此处隐藏标题栏，但保存最大化、最小化等控制按钮）
         titleBarStyle: "hidden",
+        trafficLightPosition: { x: 10, y: 18 }, // 自定义Mac上左上红绿灯的位置（即最小化、最大化、关闭窗口按钮）
         webPreferences: {
             preload,
             // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production

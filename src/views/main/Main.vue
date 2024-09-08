@@ -43,7 +43,7 @@ onMounted(() => {
 
         .bottom-part {
             display: flex;
-            height: 200px;
+            height: 180px;
             background-color: rgb(178, 252, 217);
         }
     }

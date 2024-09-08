@@ -22,6 +22,9 @@ import "@/assets/css/global-function/index.scss";
 import "@/assets/css/global-overwrite/index.scss";
 document.documentElement.setAttribute("theme", localStorage.getItem("vitepress-theme-appearance") as string);
 
+// 1.0 使用图标库
+import "../statics/iconfont/iconfont.css";
+
 // 2.0> 注册全局指令
 import directive from "@/service/directive";
 app.use(directive, {});

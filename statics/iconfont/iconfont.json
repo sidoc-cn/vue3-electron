@@ -1,0 +1,79 @@
+{
+  "id": "2076961",
+  "name": "sidoc-frp-desktop",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "Sidoc内网穿透桌面客户端",
+  "glyphs": [
+    {
+      "icon_id": "721661",
+      "name": "编辑",
+      "font_class": "ai-edit",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "3521123",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "3216245",
+      "name": "上传",
+      "font_class": "icon--",
+      "unicode": "e791",
+      "unicode_decimal": 59281
+    },
+    {
+      "icon_id": "14421260",
+      "name": "最小化",
+      "font_class": "zuixiaohua_huaban1",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "14421448",
+      "name": "恢复视窗",
+      "font_class": "huifu_huaban1",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "14421461",
+      "name": "关闭",
+      "font_class": "guanbi_huaban1",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "1336436",
+      "name": "复制",
+      "font_class": "plus-copy",
+      "unicode": "e739",
+      "unicode_decimal": 59193
+    },
+    {
+      "icon_id": "752577",
+      "name": "Clearup",
+      "font_class": "clearup",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "15473054",
+      "name": "异常_危险",
+      "font_class": "yichang_weixian",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "11641876",
+      "name": "疑问",
+      "font_class": "yiwen",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    }
+  ]
+}
