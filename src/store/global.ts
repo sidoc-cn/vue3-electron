@@ -1,3 +1,4 @@
+import { CalculationMethod, UserInfo } from "@/@types/global";
 import { defineStore } from "pinia";
 
 // ! 此文件为全局Store，在项目中被多处引用；

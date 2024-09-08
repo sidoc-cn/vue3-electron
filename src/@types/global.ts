@@ -1,7 +1,7 @@
 // 全局声明
 
 /** 1.0> 用户信息 ---------------------------------------------------------------------- */
-declare interface UserInfo {
+export interface UserInfo {
     /** 用户ID */
     userId: number;
 
@@ -28,7 +28,7 @@ declare interface UserInfo {
 }
 
 /** 2.0> 计费方式 -------------------------------------------------------------------- */
-declare enum CalculationMethod {
+export enum CalculationMethod {
     /** 固定带宽 */
     FixedBandwidth,
 
@@ -37,7 +37,7 @@ declare enum CalculationMethod {
 }
 
 /** 3.0> 客户服务方式 -------------------------------------------------------------------- */
-declare enum CustomerServiceMethod {
+export enum CustomerServiceMethod {
     /** 微信交流群 */
     WeChatGroup,
 

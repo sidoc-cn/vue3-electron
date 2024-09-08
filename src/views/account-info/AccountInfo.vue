@@ -2,8 +2,6 @@
     <div class="account-info">
         <!-- Tab栏 ------------------------- -->
         <div class="tab-bar">
-            {{ UserInfo }}
-            {{ CalculationMethod.FixedBandwidth }}
             <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">固定带宽</div>
             <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">按量付费</div>
 
@@ -49,6 +47,7 @@
 </template>
 
 <script lang="ts" setup>
+import { CalculationMethod, CustomerServiceMethod } from "@/@types/global";
 import UserInfo from "./account-function/UserInfo.vue";
 import PackageInfo from "./PackageInfo.vue";
 import WeChatSupport from "./WeChatSupport.vue";
