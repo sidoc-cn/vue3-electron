@@ -1,13 +1,16 @@
 <template>
     <div class="package-info">
-        <div>带宽：2Mbps</div>
-        <div>流量：1Gbps</div>
+        <div v-if="globalStore.calculationMethod == CalculationMethod.FixedBandwidth">带宽：2Mbps</div>
+        <div v-else-if="(globalStore.calculationMethod = CalculationMethod.PayPerUse)">流量：1Gbps</div>
         <div>隧道数：1/10</div>
     </div>
 </template>
 
 <script lang="ts" setup>
-const test = ref("");
+import { CalculationMethod } from "@/@types/global";
+import { useGlobalStore } from "@/store/global";
+
+const globalStore = useGlobalStore();
 
 onMounted(() => {
     console.log("1");

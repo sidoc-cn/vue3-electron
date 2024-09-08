@@ -2,8 +2,8 @@
     <div class="account-info">
         <!-- Tab栏 ------------------------- -->
         <div class="tab-bar">
-            <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">固定带宽</div>
-            <div @click="switchCalculationMethod(CalculationMethod.FixedBandwidth)">按量付费</div>
+            <div class="tab" @click="globalStore.calculationMethod = CalculationMethod.FixedBandwidth">固定带宽</div>
+            <div class="tab" @click="globalStore.calculationMethod = CalculationMethod.PayPerUse">按量付费</div>
 
             <!-- 账户功能 --------------------------- -->
             <div class="account-function">
@@ -48,16 +48,11 @@
 
 <script lang="ts" setup>
 import { CalculationMethod, CustomerServiceMethod } from "@/@types/global";
-import UserInfo from "./account-function/UserInfo.vue";
 import PackageInfo from "./PackageInfo.vue";
 import WeChatSupport from "./WeChatSupport.vue";
 import { useGlobalStore } from "@/store/global";
 
 const globalStore = useGlobalStore();
-
-const switchCalculationMethod = (method: CalculationMethod) => {
-    globalStore.calculationMethod = method;
-};
 
 // 微信讨论群/技术支持
 const weChatSupportMethod = ref(CustomerServiceMethod.WeChatGroup); //
@@ -87,6 +82,7 @@ const openWeChatSupport = (type: CustomerServiceMethod) => {
         background-color: rgb(206, 206, 206);
         > * {
             padding: 2px 10px;
+            cursor: pointer;
         }
     }
 
