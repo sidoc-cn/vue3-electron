@@ -23,9 +23,10 @@
             <el-button type="primary" @click="login" :loading="isLogin">登录</el-button>
         </div>
         <div class="footer">
-            <div>©2022-2023 WEB.COM</div>
+            v{{ version }} | 进入官网
+            <!-- <div>©2022-2023 Sidoc.cn 版权所有</div>
             <div class="version">版本 v{{ version }}</div>
-            <div class="update-time" v-if="buildTime">更新于{{ buildTime }}</div>
+            <div class="update-time" v-if="buildTime">更新于{{ buildTime }}</div> -->
         </div>
     </div>
 </template>
@@ -86,6 +87,9 @@ const login = () => {
 // 窗体拖动区域
 .drag-bar {
     // background-color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 55px;
     width: 100%;
     -webkit-app-region: drag; /* 可拖拽移动窗体（在Mac下打开调试工具时无效） */

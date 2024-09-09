@@ -25,6 +25,11 @@ console.log(test);
 onMounted(() => {
     console.log("1");
 });
+
+// 监听主进程消息
+window.ipcRenderer.on("main-process-message", (_event, ...args) => {
+    console.log("[收到主进程消息]:", ...args);
+});
 </script>
 
 <style lang="scss" scoped>

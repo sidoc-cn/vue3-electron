@@ -1,6 +1,9 @@
 import { ipcRenderer, contextBridge } from "electron";
 
-// --------- Expose some API to the Renderer process ---------
+// 预加载脚本是一个特殊的脚本，在渲染器加载网页之前注入到页面中，用于将渲染进程、Node.js进程、Electron主进程桥接在一起；
+// 渲染进程通过预加载脚本可以访问 Node.js 和 Electron主进程的API，详见官网：https://www.electronjs.org/zh/docs/latest/tutorial/tutorial-preload#%E4%BD%BF%E7%94%A8%E9%A2%84%E5%8A%A0%E8%BD%BD%E8%84%9A%E6%9C%AC%E6%9D%A5%E5%A2%9E%E5%BC%BA%E6%B8%B2%E6%9F%93%E5%99%A8
+
+// 暴露API到渲染进程
 contextBridge.exposeInMainWorld("ipcRenderer", {
     on(...args: Parameters<typeof ipcRenderer.on>) {
         const [channel, listener] = args;
@@ -14,6 +17,10 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
         const [channel, ...omit] = args;
         return ipcRenderer.send(channel, ...omit);
     },
+
+    // 向主进程发送异步消息并等待返回结果（Promise）
+    // 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
+    // ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数
     invoke(...args: Parameters<typeof ipcRenderer.invoke>) {
         const [channel, ...omit] = args;
         return ipcRenderer.invoke(channel, ...omit);
@@ -23,7 +30,7 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
     // ...
 });
 
-// --------- Preload scripts loading ---------
+// DOM准备函数：确保在DOM达到指定状态时执行某些操作
 function domReady(condition: DocumentReadyState[] = ["complete", "interactive"]) {
     return new Promise((resolve) => {
         if (condition.includes(document.readyState)) {
@@ -38,6 +45,7 @@ function domReady(condition: DocumentReadyState[] = ["complete", "interactive"])
     });
 }
 
+// 安全DOM操作：提供安全的DOM添加和移除功能，防止重复操作
 const safeDOM = {
     append(parent: HTMLElement, child: HTMLElement) {
         if (!Array.from(parent.children).find((e) => e === child)) {
@@ -52,6 +60,8 @@ const safeDOM = {
 };
 
 /**
+ * 加载动画功能
+ *
  * https://tobiasahlin.com/spinkit
  * https://connoratherton.com/loaders
  * https://projects.lukehaas.me/css-loaders
@@ -60,35 +70,34 @@ const safeDOM = {
 function useLoading() {
     const className = `loaders-css__square-spin`;
     const styleContent = `
-@keyframes square-spin {
-  25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
-  50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
-  75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
-  100% { transform: perspective(100px) rotateX(0) rotateY(0); }
-}
-.${className} > div {
-  animation-fill-mode: both;
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
-}
-.app-loading-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #282c34;
-  z-index: 9;
-}
-    `;
+        @keyframes square-spin {
+            25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
+            50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
+            75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
+            100% { transform: perspective(100px) rotateX(0) rotateY(0); }
+        }
+        .${className} > div {
+            animation-fill-mode: both;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
+        }
+        .app-loading-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #282c34;
+            z-index: 9;
+        }`;
+
     const oStyle = document.createElement("style");
     const oDiv = document.createElement("div");
-
     oStyle.id = "app-loading-style";
     oStyle.innerHTML = styleContent;
     oDiv.className = "app-loading-wrap";
@@ -106,13 +115,14 @@ function useLoading() {
     };
 }
 
-// ----------------------------------------------------------------------
-
+// 执行加载动画
 const { appendLoading, removeLoading } = useLoading();
+// DOM准备好后调用appendLoading显示加载动画。
 domReady().then(appendLoading);
 
+// 监听window.onmessage事件，接收到removeLoading消息时移除加载动画
 window.onmessage = (ev) => {
     ev.data.payload === "removeLoading" && removeLoading();
 };
-
+// 设定5秒后自动移除加载动画。
 setTimeout(removeLoading, 4999);

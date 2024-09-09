@@ -54,6 +54,10 @@ import "./assets/fonts/fonts.scss";
 // 8.0> 注册SVG插件
 import "virtual:svg-icons-register";
 
+// 9.0> electron
+import "./service/ipcDemo";
+// import "./service/nodeApi";
+
 app.mount("#app").$nextTick(() => {
     // Vue应用挂载并完成DOM更新后，发送移除Loading的通知
     postMessage({ payload: "removeLoading" }, "*");

@@ -2,6 +2,7 @@
     <div class="account-info-index">
         <!-- Tab栏 ------------------------- -->
         <div class="tab-bar">
+            <!-- tab按钮 -->
             <div class="tab" @click="globalStore.calculationMethod = CalculationMethod.FixedBandwidth">固定带宽</div>
             <div class="tab" @click="globalStore.calculationMethod = CalculationMethod.PayPerUse">按量付费</div>
 
@@ -23,6 +24,7 @@
                         <el-dropdown-menu>
                             <el-dropdown-item>个人信息</el-dropdown-item>
                             <el-dropdown-item>社交账号</el-dropdown-item>
+                            <el-dropdown-item>意见反馈</el-dropdown-item>
                             <el-dropdown-item divided @click="common.signOut(router)">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
@@ -80,6 +82,11 @@ const openWeChatSupport = (type: CustomerServiceMethod) => {
     weChatSupportMethod.value = type;
     dialogConfig.visible.value = true;
 };
+
+// 监听主进程消息
+window.ipcRenderer.on("main-process-message", (_event, ...args) => {
+    console.log("[收到主进程消息]:", ...args);
+});
 </script>
 
 <style lang="scss" scoped>
