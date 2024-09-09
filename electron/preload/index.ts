@@ -5,33 +5,42 @@ import { ipcRenderer, contextBridge } from "electron";
 
 // 暴露API到渲染进程
 contextBridge.exposeInMainWorld("ipcRenderer", {
-    on(...args: Parameters<typeof ipcRenderer.on>) {
-        const [channel, listener] = args;
-        return ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
-    },
-    off(...args: Parameters<typeof ipcRenderer.off>) {
-        const [channel, ...omit] = args;
-        return ipcRenderer.off(channel, ...omit);
-    },
-    send(...args: Parameters<typeof ipcRenderer.send>) {
-        const [channel, ...omit] = args;
-        return ipcRenderer.send(channel, ...omit);
-    },
-
     // 向主进程发送异步消息并等待返回结果（Promise）
     // 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
     // ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数
-    invoke(...args: Parameters<typeof ipcRenderer.invoke>) {
-        const [channel, ...omit] = args;
-        return ipcRenderer.invoke(channel, ...omit);
-    },
 
-    // You can expose other APTs you need here.
-    // ...
+    // 窗口 - 最小化
+    windowMin: () => ipcRenderer.invoke("min"),
 
-    // ## 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
-    // ## ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数
-    ping: () => ipcRenderer.invoke("some-channel2"),
+    // 窗口 - 最大化
+    windowMax: () => ipcRenderer.invoke("max"),
+
+    // 窗口 - 关闭
+    windowClose: () => ipcRenderer.invoke("close"),
+
+    // 数据存储 - 保存
+    storeSet: () => ipcRenderer.invoke("store-set"),
+
+    // 数据存储 - 获取
+    storeGet: () => ipcRenderer.invoke("store-get"),
+
+    // 数据存储 - 删除
+    storeDelete: () => ipcRenderer.invoke("store-delete"),
+
+    // frp - 启动
+    frpStart: () => ipcRenderer.invoke("start-frp"),
+
+    // frp - 重启
+    frpRestart: () => ipcRenderer.invoke("restart-frp"),
+
+    // frp - 停止
+    frpStop: () => ipcRenderer.invoke("stop-frp"),
+
+    // frp - 导出配置
+    frpExportConfig: () => ipcRenderer.invoke("export-config-frp"),
+
+    // frp - 获取配置内容
+    frpGetConfigContent: () => ipcRenderer.invoke("get-config-frp-content"),
 });
 
 // DOM准备函数：确保在DOM达到指定状态时执行某些操作

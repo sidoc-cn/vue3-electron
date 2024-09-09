@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain } from "electron";
+import { app, BrowserWindow, shell, ipcMain, ipcRenderer } from "electron";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -104,15 +104,20 @@ app.whenReady().then(() => {
     createWindow();
 
     // 注册需要暴露给渲染进程的函数（通过ipcMain.handle注册的函数是异步执行的，其执行时会返回一个Promise）
-    registerHandlersBase();
-    registerHandlersFrp();
+    registerHandlersBase(win);
+    registerHandlersFrp(win);
 });
 
-// 当所有窗口关闭时，设置win为null。
-// 在非macOS平台上退出应用程序。
+// 当所有窗口关闭时，设置win为null;
+// 在非macOS平台上退出应用程序
 app.on("window-all-closed", () => {
     win = null;
     if (process.platform !== "darwin") app.quit();
+});
+
+// 程序即将退出时触发
+app.on("will-quit", () => {
+    ipcRenderer.invoke("stop-frp"); // 程序退出时停止frp
 });
 
 // 当用户尝试启动第二个应用实例时触发。
