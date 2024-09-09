@@ -84,9 +84,9 @@ const openWeChatSupport = (type: CustomerServiceMethod) => {
 };
 
 // 监听主进程消息
-window.ipcRenderer.on("main-process-message", (_event, ...args) => {
-    console.log("[收到主进程消息]:", ...args);
-});
+// window.ipcRenderer.on("main-process-message", (_event, ...args) => {
+//     console.log("[收到主进程消息]:", ...args);
+// });
 </script>
 
 <style lang="scss" scoped>

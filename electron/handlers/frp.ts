@@ -2,7 +2,7 @@
 import os from "os";
 import fs from "fs";
 import path from "path";
-const exec = require("child_process").exec;
+import { exec } from "child_process";
 import iconv from "iconv-lite";
 import { BrowserWindow, ipcMain, dialog, app } from "electron";
 
@@ -132,7 +132,7 @@ function frpStart(event) {
 }
 
 // 0.2> 停止frp
-function frpStop(event) {
+export const frpStop = (event?) => {
     if (workerProcess) {
         workerProcess.kill();
     }
@@ -178,7 +178,7 @@ function frpStop(event) {
             if (event) event.sender.send("frp-log-callback", "sidoc-stop-success:已停止\n");
             break;
     }
-}
+};
 
 // 0.3> 重载frp
 function frpRestart(event) {

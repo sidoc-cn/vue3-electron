@@ -1,10 +1,10 @@
-import { app, BrowserWindow, shell, ipcMain, ipcRenderer } from "electron";
+import { app, BrowserWindow, shell, ipcMain } from "electron";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import os from "node:os";
 import { registerHandlersBase } from "../handlers/base";
-import { registerHandlersFrp } from "../handlers/frp";
+import { registerHandlersFrp, frpStop } from "../handlers/frp";
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -117,7 +117,7 @@ app.on("window-all-closed", () => {
 
 // 程序即将退出时触发
 app.on("will-quit", () => {
-    ipcRenderer.invoke("stop-frp"); // 程序退出时停止frp
+    frpStop(); // 程序退出时停止frp
 });
 
 // 当用户尝试启动第二个应用实例时触发。
