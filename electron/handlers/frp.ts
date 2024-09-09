@@ -1,9 +1,9 @@
 // frp内网穿透相关操作
-const os = require("os");
-const fs = require("fs");
-const path = require("path");
+import os from "os";
+import fs from "fs";
+import path from "path";
 const exec = require("child_process").exec;
-const iconv = require("iconv-lite");
+import iconv from "iconv-lite";
 import { BrowserWindow, ipcMain, dialog, app } from "electron";
 
 let mainWindow: BrowserWindow | null = null;
