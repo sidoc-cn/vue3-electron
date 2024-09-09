@@ -28,6 +28,10 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
 
     // You can expose other APTs you need here.
     // ...
+
+    // ## 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
+    // ## ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数
+    ping: () => ipcRenderer.invoke("some-channel2"),
 });
 
 // DOM准备函数：确保在DOM达到指定状态时执行某些操作

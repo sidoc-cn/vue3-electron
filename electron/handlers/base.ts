@@ -6,12 +6,12 @@
 import { ipcMain } from "electron";
 
 export const registerHandlersBase = () => {
-    ipcMain.handle("some-channel", async (event, arg) => {
+    ipcMain.handle("some-channel2", async (event, arg) => {
         // Your logic here
         return "result";
     });
 
-    ipcMain.handle("another-channel", async (event, arg) => {
+    ipcMain.handle("another-channel2", async (event, arg) => {
         // Another logic here
         return "another result";
     });
