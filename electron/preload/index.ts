@@ -5,23 +5,33 @@ import { ipcRenderer, contextBridge } from "electron";
 
 // 暴露API到渲染进程
 contextBridge.exposeInMainWorld("ipcRenderer", {
+    // 1.0> 通过消息监听的方式来使用渲染进程和主进程通信（此方法更多灵活，也更麻烦）=======================================================
+    // 监听从主进程发送的消息
     on(...args: Parameters<typeof ipcRenderer.on>) {
         const [channel, listener] = args;
         return ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
     },
+
+    // 移除指定的监听器，取消通过 on 添加的监听器
     off(...args: Parameters<typeof ipcRenderer.off>) {
         const [channel, ...omit] = args;
         return ipcRenderer.off(channel, ...omit);
     },
+
+    // 向主进程发送异步消息，send是单向通信，将消息发送到主进程，但不需要接收返回值
     send(...args: Parameters<typeof ipcRenderer.send>) {
         const [channel, ...omit] = args;
         return ipcRenderer.send(channel, ...omit);
     },
+
+    // 通过 ipcRenderer.invoke 向主进程发送消息，并期待接收到主进程的返回值；
+    // 该方法返回的是一个 Promise，适用于需要请求-响应的通信模式
     invoke(...args: Parameters<typeof ipcRenderer.invoke>) {
         const [channel, ...omit] = args;
         return ipcRenderer.invoke(channel, ...omit);
     },
 
+    // 2.0> 通过直接暴露方法的方式来使渲染进程和主进程通信（此方法简单、直接，但决有消息监听灵活）=============================================
     // 向主进程发送异步消息并等待返回结果（Promise）
     // 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
     // ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数
