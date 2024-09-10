@@ -5,6 +5,10 @@ import path from "node:path";
 import os from "node:os";
 import { registerHandlersBase } from "../handlers/base";
 import { registerHandlersFrp, frpStop } from "../handlers/frp";
+import Bugsnag from "@bugsnag/electron";
+
+// 主进程全局异常上报
+Bugsnag.start({ apiKey: "4ba48efc48030fb528ad43337d32eaff" });
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -163,4 +167,10 @@ ipcMain.handle("open-win", (_, arg) => {
     } else {
         childWindow.loadFile(indexHtml, { hash: arg });
     }
+});
+
+process.on("uncaughtException", (err, origin) => {
+    //收集日志
+    //显示异常提示信息或者重新加载应用
+    console.error("收到异常");
 });

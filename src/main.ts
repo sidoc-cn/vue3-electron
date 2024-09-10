@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import Bugsnag from "@bugsnag/electron";
 
 const app = createApp(App);
 app.use(store).use(router);
@@ -12,6 +13,9 @@ app.config.errorHandler = (err, instance, info) => {
     console.error(instance);
     console.error(info);
 };
+
+// 0.0> 渲染进程全局异常上报
+Bugsnag.start();
 
 // 1.0> 引入全局样式
 import "@/assets/css/global-base.scss";

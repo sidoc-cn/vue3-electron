@@ -5,6 +5,23 @@ import { ipcRenderer, contextBridge } from "electron";
 
 // 暴露API到渲染进程
 contextBridge.exposeInMainWorld("ipcRenderer", {
+    on(...args: Parameters<typeof ipcRenderer.on>) {
+        const [channel, listener] = args;
+        return ipcRenderer.on(channel, (event, ...args) => listener(event, ...args));
+    },
+    off(...args: Parameters<typeof ipcRenderer.off>) {
+        const [channel, ...omit] = args;
+        return ipcRenderer.off(channel, ...omit);
+    },
+    send(...args: Parameters<typeof ipcRenderer.send>) {
+        const [channel, ...omit] = args;
+        return ipcRenderer.send(channel, ...omit);
+    },
+    invoke(...args: Parameters<typeof ipcRenderer.invoke>) {
+        const [channel, ...omit] = args;
+        return ipcRenderer.invoke(channel, ...omit);
+    },
+
     // 向主进程发送异步消息并等待返回结果（Promise）
     // 将主进程中的IPC函数暴露给渲染进程（IPC是进程间通信模块）
     // ipcRenderer.invoke用于调用主进程中已定义的指定名称的IPC函数

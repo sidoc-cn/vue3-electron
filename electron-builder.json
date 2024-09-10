@@ -26,7 +26,7 @@
                 "arch": ["x64", "ia32", "arm64"]
             }
         ],
-        "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
+        "artifactName": "${productName}-${version}-windows-${arch}.${ext}",
         "icon": "statics/logo/app-256.ico"
     },
     "nsis": {
