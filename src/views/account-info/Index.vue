@@ -42,11 +42,11 @@
 
             <!-- 服务支持 -->
             <div class="service-support">
-                <div @click="openWeChatSupport(CustomerServiceMethod)">
+                <div @click="openWeChatSupport(CustomerServiceMethod.WeChatGroup)">
                     <img src="@/assets/logo.png" />
                     微信交流群
                 </div>
-                <div @click="openWeChatSupport('customer_service')">
+                <div @click="openWeChatSupport(CustomerServiceMethod.CustomerService)">
                     <img src="@/assets/logo.png" />
                     客服/技术支持
                 </div>

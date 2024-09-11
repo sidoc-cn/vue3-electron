@@ -14,7 +14,7 @@
             </el-form-item>
             <el-form-item label="协议类型" prop="pass">
                 <el-select v-model="value" placeholder="Select" style="width: 240px">
-                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+                    <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" /> -->
                 </el-select>
             </el-form-item>
             <el-form-item label="内网服务" prop="pass">
@@ -33,6 +33,9 @@
 import type { FormInstance, FormRules } from "element-plus";
 
 const ruleFormRef = ref<FormInstance>();
+
+const value = ref("");
+const options = ref([]);
 
 const checkAge = (rule: any, value: any, callback: any) => {
     if (!value) {

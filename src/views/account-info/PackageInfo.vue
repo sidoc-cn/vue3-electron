@@ -49,6 +49,8 @@ import { useAccountInfoStore } from "@/store/account-info";
 const globalStore = useGlobalStore();
 const accountInfoStore = useAccountInfoStore();
 
+const gridData = ref([]);
+
 onMounted(() => {
     console.log("1");
 });

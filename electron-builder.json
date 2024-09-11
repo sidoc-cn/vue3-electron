@@ -12,7 +12,7 @@
     "mac": {
         "target": {
             "target": "dmg",
-            "arch": ["x64", "arm64"]
+            "arch": ["x64", "arm64", "universal"]
         },
         "artifactName": "${productName}-${version}-${platform}-${arch}.${ext}",
         "icon": "statics/logo/app-256-512.icns",

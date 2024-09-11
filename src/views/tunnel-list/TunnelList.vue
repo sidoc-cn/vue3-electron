@@ -5,7 +5,7 @@
                 <div class="">隧道列表</div>
             </div>
             <div class="right">
-                <el-button v-auth="'add'" class="add" type="primary" @click="addOrEidt()">添加隧道</el-button>
+                <el-button v-auth="'add'" class="add" type="primary" @click="addOrEdit()">添加隧道</el-button>
             </div>
         </div>
         <el-table>
@@ -27,8 +27,10 @@
             <el-table-column prop="createUserName" label="外网访问地址" min-width="100px" align="center" />
             <el-table-column label="操作" width="200" align="center">
                 <template #default="scope">
-                    <el-link v-auth="'edit'" class="edit" :underline="false" type="primary" @click="edit(scope.row)">启动/停止</el-link>
-                    <el-link v-auth="'edit'" class="edit" :underline="false" type="primary" @click="edit(scope.row)">编辑</el-link>
+                    <el-link v-auth="'edit'" class="edit" :underline="false" type="primary" @click="addOrEdit(scope.row)">
+                        启动/停止
+                    </el-link>
+                    <el-link v-auth="'edit'" class="edit" :underline="false" type="primary" @click="addOrEdit(scope.row)">编辑</el-link>
                     <el-link v-auth="'delete'" class="delete" :underline="false" type="danger">删除</el-link>
                     <!-- <el-link v-auth="'reset'" class="save" :underline="false" type="primary">重置密码</el-link> -->
                 </template>
@@ -63,7 +65,7 @@ const dialogConfig: import("@/components/dialog-html/DialogHtml.vue").DialogProp
     },
 };
 
-const addOrEidt = () => {
+const addOrEdit = (item?: unknown) => {
     dialogConfig.visible.value = true;
 };
 </script>

@@ -1,5 +1,6 @@
 // 任务业务公共方法
 
+import { UserInfo } from "@/@types/global";
 import { useGlobalStore } from "@/store/global";
 import { Router } from "vue-router";
 
@@ -22,13 +23,13 @@ const getToken = (): string | null => {
 };
 
 // 3.0> 获取当前登录用户的信息 --------------------------------------------------------------------------------------
-const getUserInfo = async (token: string | null): Promise<UserInfoType | null> => {
+const getUserInfo = async (token: string | null): Promise<UserInfo | null> => {
     const globalStore = useGlobalStore();
     if (globalStore.userInfo) {
         return globalStore.userInfo;
     } else {
         if (!token) return null;
-        const res = await httpGet<UserInfoType>(ServerType.Base, {
+        const res = await httpGet<UserInfo>(ServerType.Base, {
             url: "/getInfo",
         });
         globalStore.userInfo = res;
@@ -36,29 +37,9 @@ const getUserInfo = async (token: string | null): Promise<UserInfoType | null> =
     }
 };
 // 3.1> 同步获取当前用户的信息
-const getSynUserInfo = (): UserInfoType | null => {
+const getSynUserInfo = (): UserInfo | null => {
     const globalStore = useGlobalStore();
     return globalStore.userInfo;
 };
 
-// 4.0> 获取页面路由 ------------------------------------------------------------------------------------------------
-const getRouters = async (token: string | null): Promise<RouterType[]> => {
-    const globalStore = useGlobalStore();
-    if (globalStore.routers.length > 0) {
-        return globalStore.routers;
-    } else {
-        if (!token) return [];
-        const res = await httpGet<RouterType[]>(ServerType.Base, {
-            url: "/getRouters",
-        });
-        globalStore.routers = res;
-        return res;
-    }
-};
-// 4.1> 同步获取页面路由
-const getSynRouters = (): RouterType[] => {
-    const globalStore = useGlobalStore();
-    return globalStore.routers;
-};
-
-export default { logIn, signOut, getToken, getUserInfo, getSynUserInfo, getRouters, getSynRouters };
+export default { logIn, signOut, getToken, getUserInfo, getSynUserInfo };

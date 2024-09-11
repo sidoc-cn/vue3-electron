@@ -114,20 +114,6 @@ const getStaticPath = (): string => {
     return import.meta.env.VITE_APP_ENV_PATH + path;
 };
 
-// 保存页面状态
-const savePageStatus = (data: object) => {
-    // 存在页面数据至session中时，实测影响页面性能，因此保存数据要异步执行
-    // 为了使每次保存或更新的数据尽量最小，因此每个页面要在session中保存一条数据
-    const globalStore = useGlobalStore();
-    globalStore.keepPageData.set(window.location.href, data);
-};
-
-// 获取页面状态
-const getPageStatus = () => {
-    const globalStore = useGlobalStore();
-    return globalStore.keepPageData.get(window.location.href);
-};
-
 // 列表转tree
 const listToTree = <T>(
     listData: Array<T & { id: string | number; parentId: string | number; children: Array<T> }>,
@@ -351,8 +337,6 @@ export default <CommonInterface>{
     openPage,
     getFullPath,
     getStaticPath,
-    savePageStatus,
-    getPageStatus,
 
     listToTree,
     treeToList,

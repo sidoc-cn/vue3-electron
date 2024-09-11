@@ -30,17 +30,15 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .title-bar {
+    display: flex;
+    padding: 10px;
+    padding-top: 30px;
+    align-items: center;
     -webkit-app-region: drag; /* 可拖拽移动窗体（在Mac下打开调试工具时无效） */
     * {
         /* drag会导致元素无法选中或点击，因此子元素取消drag */
         -webkit-app-region: no-drag;
     }
-
-    display: flex;
-    padding: 10px;
-    padding-top: 30px;
-    align-items: center;
-
     .item {
         display: flex;
         margin-right: 10px;

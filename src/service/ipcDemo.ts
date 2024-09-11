@@ -22,7 +22,7 @@ window.ipcRenderer.off("main-process-message", messageListener);
 // console.log(`Invoke result: ${result}`);
 
 // 2.0> 通过直接调用的示例 ==========================================================
-const result1 = await window.ipcRenderer.invoke("direct-call", "Some data");
-console.log(`Invoke result: ${result1}`);
+// const result1 = await window.ipcRenderer.invoke("direct-call", "Some data");
+// console.log(`Invoke result: ${result1}`);
 
 export {};
