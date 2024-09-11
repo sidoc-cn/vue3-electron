@@ -7,7 +7,7 @@ import { ipcMain, BrowserWindow } from "electron";
 let mainWindow: BrowserWindow | null = null;
 
 // 注册需要暴露给渲染进程的函数（通过ipcMain.handle注册的函数是异步执行的，其执行时会返回一个Promise）
-export const registerDemo = () => (win: BrowserWindow) => {
+export const registerDemo = (win: BrowserWindow) => {
     mainWindow = win;
 
     // 1.0> 通过消息监听通信的示例 ==============================================================

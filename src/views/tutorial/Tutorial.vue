@@ -2,15 +2,15 @@
     <div class="tutorial">
         <div class="title-bar">使用教程</div>
         <div class="log-content">
-            <div class="item">游戏联机</div>
-            <div class="item">点对点直连</div>
-            <div class="item">远程桌面</div>
-            <div class="item">Web服务映射</div>
-            <div class="item">SSH服务映射</div>
-            <div class="item">Linux同使用</div>
-            <div class="item">常见问题</div>
-            <div class="item">官方文档</div>
-            <div class="item">其它使用方法</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">游戏联机</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">点对点直连</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">远程桌面</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">Web服务映射</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">SSH服务映射</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">Linux同使用</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">常见问题</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">官方文档</div>
+            <div class="item" onclick="window.open('https://sidoc.cn', '_blank');">其它使用方法</div>
         </div>
     </div>
 </template>

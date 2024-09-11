@@ -23,7 +23,8 @@
             <el-button type="primary" @click="login" :loading="isLogin">登录</el-button>
         </div>
         <div class="footer">
-            v{{ version }} | 进入官网
+            v{{ version }} |
+            <div onclick="window.open('https://sidoc.cn', '_blank');">进入官网</div>
             <!-- <div>©2022-2023 Sidoc.cn 版权所有</div>
             <div class="version">版本 v{{ version }}</div>
             <div class="update-time" v-if="buildTime">更新于{{ buildTime }}</div> -->

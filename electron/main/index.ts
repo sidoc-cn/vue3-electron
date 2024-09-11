@@ -3,12 +3,13 @@ import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import os from "node:os";
+import Bugsnag from "@bugsnag/electron";
+import { registerDemo } from "../handlers/demo";
 import { registerHandlersBase } from "../handlers/base";
 import { registerHandlersFrp, frpStop } from "../handlers/frp";
-import Bugsnag from "@bugsnag/electron";
 
 // 主进程全局异常上报
-Bugsnag.start({ apiKey: "4ba48efc48030fb528ad43337d32eaff" });
+Bugsnag.start({ apiKey: "xxxx" });
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -96,7 +97,7 @@ async function createWindow() {
     // 确保所有外部链接在用户的默认浏览器中打开，而不是在应用程序中。
     // 增强用户体验和安全性，避免在应用中意外加载不受信任的内容。
     win.webContents.setWindowOpenHandler(({ url }) => {
-        if (url.startsWith("https:")) shell.openExternal(url);
+        if (url.startsWith("https:") || url.startsWith("http:")) shell.openExternal(url);
         return { action: "deny" };
     });
     // win.webContents.on('will-navigate', (event, url) => { }) #344
@@ -110,6 +111,8 @@ app.whenReady().then(() => {
     // 注册需要暴露给渲染进程的函数（通过ipcMain.handle注册的函数是异步执行的，其执行时会返回一个Promise）
     registerHandlersBase(win);
     registerHandlersFrp(win);
+
+    registerDemo(win);
 });
 
 // 当所有窗口关闭时，设置win为null;

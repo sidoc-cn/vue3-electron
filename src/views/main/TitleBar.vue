@@ -6,14 +6,16 @@
         <div class="item title">Vue3-Electron模板项目 v0.1.1</div>
         <div class="item new-version">
             <el-badge is-dot class="item">
-                <el-link type="primary" :underline="false">发现新版本，立即升级</el-link>
+                <el-link type="primary" :underline="false" onclick="window.open('https://sidoc.cn', '_blank');">
+                    发现新版本，立即升级
+                </el-link>
             </el-badge>
         </div>
 
         <div class="windowOperation">
-            <i class="iconfont iconzuixiaohua_huaban1" @click="$electron.ipcRenderer.send('min')"></i>
-            <i class="iconfont iconhuifu_huaban1" @click="$electron.ipcRenderer.send('max')"></i>
-            <i class="close iconfont iconguanbi_huaban1" @click="$electron.ipcRenderer.send('close')"></i>
+            <i class="iconfont iconzuixiaohua_huaban1" onclick="window.ipcRenderer.windowMin()"></i>
+            <i class="iconfont iconhuifu_huaban1" onclick="window.ipcRenderer.windowMax()"></i>
+            <i class="close iconfont iconguanbi_huaban1" onclick="window.ipcRenderer.windowClose()"></i>
         </div>
     </div>
 </template>

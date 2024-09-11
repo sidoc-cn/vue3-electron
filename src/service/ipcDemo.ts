@@ -15,11 +15,11 @@ window.ipcRenderer.on("main-process-message", messageListener);
 window.ipcRenderer.off("main-process-message", messageListener);
 
 // 1.3>.发送消息给主进程
-window.ipcRenderer.send("simple-message", "Hello from renderer");
+// window.ipcRenderer.send("simple-message", "Hello from renderer");
 
 // 1.4> 调用主进程的 invoke 方法并等待结果
-const result = await window.ipcRenderer.invoke("invoke-message", "Some data");
-console.log(`Invoke result: ${result}`);
+// const result = await window.ipcRenderer.invoke("invoke-message", "Some data");
+// console.log(`Invoke result: ${result}`);
 
 // 2.0> 通过直接调用的示例 ==========================================================
 const result1 = await window.ipcRenderer.invoke("direct-call", "Some data");
